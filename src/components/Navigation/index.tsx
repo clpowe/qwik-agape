@@ -12,10 +12,12 @@ export default component$(() => {
 				<div class='flex items-center'>
 					<img
 						src='/agapeLogo.svg'
-						class='w-16'
+						class='w-10'
 						alt='Agape Christian Bar Prep Logo'
 					/>
-					<span class='hidden md:block'>Agape Christian Bar Prep</span>
+					<span class='hidden md:block text-white font-bold ml-4'>
+						Agape Christian Bar Prep
+					</span>
 				</div>
 				<div class='flex items-center gap-2 font-bold text-white '>
 					Menu
