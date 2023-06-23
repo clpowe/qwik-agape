@@ -4,7 +4,7 @@ export default component$(() => {
 	return (
 		<div class='absolute top-0 left-0 w-full z-10'>
 			<div class='bg-black '>
-				<div class='container text-white text-sm text-center py-2 md:text-end'>
+				<div class='container mx-auto px-4 text-white text-sm text-center py-2 md:text-end'>
 					admin@agapechristianbarprep.com / 1-800-321-5588
 				</div>
 			</div>
@@ -12,7 +12,7 @@ export default component$(() => {
 				<div class='flex items-center'>
 					<img
 						src='/agapeLogo.svg'
-						class='w-10'
+						class='w-16'
 						alt='Agape Christian Bar Prep Logo'
 					/>
 					<span class='hidden md:block'>Agape Christian Bar Prep</span>

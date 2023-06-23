@@ -3,49 +3,19 @@ import { routeLoader$ } from '@builder.io/qwik-city'
 import {
 	getContent,
 	RenderContent,
-	getBuilderSearchParams,
-	type RegisteredComponent
+	getBuilderSearchParams
 } from '@builder.io/sdk-qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
+import { CUSTOM_COMPONENTS } from '~/components/builder-registry'
 
 export const BUILDER_PUBLIC_API_KEY = 'a77f4a06dd2947ec9095c8f325ed362e' // <-- Add your Builder public API key here
 export const BUILDER_MODEL = 'page'
-
-export const MyHeroComponent = component$((props: { text: string }) => {
-	return (
-		<div class='relative top-0 grid bg-[url("/HeroImage.png")] h-[38rem] bg-cover bg-center items-end p-4'>
-			<div class='text-white flex flex-col gap-4'>
-				<h1 class='text-5xl font-bold  w-2/3'>{props.text}</h1>
-				<p>
-					We specialize in helping students overcome barriers to learning so
-					they can fully develop their intellectual potential.
-				</p>
-				<button class=' w-40 font-bold uppercase bg-red-800 py-4 px-5 rounded-md '>
-					Apply Now
-				</button>
-			</div>
-		</div>
-	)
-})
 
 // You will find these components in the "custom components"
 // section of the visual editor
 // You can also turn on "components only mode" to limit
 // editing to only these components
 // https://www.builder.io/c/docs/guides/components-only-mode
-export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
-	{
-		component: MyHeroComponent,
-		name: 'MyHeroComponent',
-		inputs: [
-			{
-				name: 'text',
-				type: 'string',
-				defaultValue: 'Hello world'
-			}
-		]
-	}
-]
 
 // Use Qwik City's `useBuilderContent` to get your content from Builder.
 // `routeLoader$()` takes an async function to fetch content
