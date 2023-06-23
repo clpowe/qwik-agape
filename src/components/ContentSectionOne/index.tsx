@@ -17,7 +17,10 @@ export default component$<ContentSectionOneProps>(
 					<p>{eyebrow}</p>
 					<div>
 						<h2>{heading}</h2>
-						<p>{body}</p>
+						<p>
+							{body}
+							{img}
+						</p>
 					</div>
 					<img
 						src='/public/pexels-stanley-morales-3186386.jpg'
