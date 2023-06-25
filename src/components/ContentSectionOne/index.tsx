@@ -1,4 +1,6 @@
 import { component$, useStylesScoped$ } from '@builder.io/qwik'
+import Title from '../Title'
+import Body from '../Body'
 import style from './ContentSectionOne.css?inline'
 
 interface ContentSectionOneProps {
@@ -16,17 +18,14 @@ export default component$<ContentSectionOneProps>(
 			<section class='section'>
 				<div class='container mx-auto px-4 grid grid-cols-1 gap-6 md:grid-cols-2'>
 					<div class='space-y-4'>
-						<h2 class='text-4xl font-bold max-w-[10ch]'>
-							{heading}
-							<span class='text-red-700'>{headingSecondary}</span>
-						</h2>
-						<p class='text-base text-gray-500 '>{body}</p>
-						<button>{ctaText}</button>
+						<Title title={heading} titleSecondary={headingSecondary} />
+						<Body text={body} />
+						<button>{ctaText}</button>z
 					</div>
 
 					<img
 						src={img}
-						class='rounded-3xl h-[14.5rem] w-full object-cover md:h-[27rem]'
+						class='rounded-3xl h-[14.5rem] w-full object-cover object-top md:h-[27rem]'
 						alt=''
 						height={300}
 					/>
