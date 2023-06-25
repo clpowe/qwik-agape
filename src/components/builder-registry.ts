@@ -24,17 +24,27 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 		name: 'ContentSectionOne',
 		inputs: [
 			{
-				name: 'eyebrow',
-				type: 'string',
-				defaultValue: 'eyebrow'
-			},
-			{
 				name: 'heading',
 				type: 'string',
 				defaultValue: 'heading'
 			},
 			{
+				name: 'headingSecondary',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
 				name: 'body',
+				type: 'string',
+				defaultValue: 'Lorem Ipsum'
+			},
+			{
+				name: 'ctaText',
+				type: 'string',
+				defaultValue: 'Lorem Ipsum'
+			},
+			{
+				name: 'img',
 				type: 'string',
 				defaultValue: 'Lorem Ipsum'
 			}
