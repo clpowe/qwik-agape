@@ -16,11 +16,11 @@ export default component$<ContentSectionOneProps>(
 		useStylesScoped$(style)
 		return (
 			<section class='section'>
-				<div class='container mx-auto px-4 grid grid-cols-1 gap-6 md:grid-cols-2'>
+				<div class='container max-w-7xl mx-auto px-4 grid grid-cols-1 gap-6 md:grid-cols-2'>
 					<div class='space-y-4'>
 						<Title title={heading} titleSecondary={headingSecondary} />
 						<Body text={body} />
-						<button>{ctaText}</button>z
+						<button>{ctaText}</button>
 					</div>
 
 					<img

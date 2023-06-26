@@ -1,0 +1,19 @@
+.hero {
+	background-image: url('/heroSM.png');
+}
+
+.headline {
+	font-size: clamp(2.5rem, 5vw, 4rem);
+	line-height: 1em;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+	.hero {
+		background-image: url('/HeroImageMd.png');
+	}
+}
+@media (min-width: 1025px) {
+	.hero {
+		background-image: url('/herolg.png');
+	}
+}

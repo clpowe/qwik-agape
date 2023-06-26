@@ -4,6 +4,7 @@ import ContentSectionOne from '~/components/ContentSectionOne'
 import Title from '~/components/Title'
 import Body from '~/components/Body'
 import Section from '~/components/Section'
+import GridMenu from '~/components/GridMenu'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -100,5 +101,9 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 				defaultValue: 'heading'
 			}
 		]
+	},
+	{
+		component: GridMenu,
+		name: 'GridMenu'
 	}
 ]
