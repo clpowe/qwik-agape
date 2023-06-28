@@ -48,7 +48,6 @@ export default component$(() => {
 							<button class='flex md:hidden font-bold '>
 								Menu
 								<div class='i-mdi-microsoft-xbox-controller-menu text-2xl' />
-								{/* <img src='/Menu.svg' alt='' /> */}
 							</button>
 						</div>
 					</nav>

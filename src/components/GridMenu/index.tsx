@@ -13,14 +13,14 @@ export default component$(() => {
 	)
 
 	return (
-		<div class='container mx-auto max-w-7xl p-4'>
+		<div class='container mx-auto max-w-7xl p-4 '>
 			<Resource
 				value={linksResource}
 				onPending={() => <>Loading...</>}
 				onRejected={(error) => <>Error: {error.message}</>}
 				onResolved={(links) => {
 					return (
-						<nav class='grid grid-cols-2 gap-4'>
+						<nav class='grid grid-cols-2 gap-4 md:grid-cols-4'>
 							{links.results.map((link) => (
 								<>
 									<ClickableItem text={link.name} href={link.data.link} />

@@ -5,6 +5,8 @@ import Title from '~/components/Title'
 import Body from '~/components/Body'
 import Section from '~/components/Section'
 import GridMenu from '~/components/GridMenu'
+import InnerHero from '~/components/InnerHero'
+import Testimonials from '~/components/Testimonials'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -64,6 +66,11 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 				defaultValue: 'heading'
 			},
 			{
+				name: 'eyebrow',
+				type: 'eyebrow',
+				defaultValue: 'heading'
+			},
+			{
 				name: 'titleSecondary',
 				type: 'string',
 				defaultValue: 'heading'
@@ -105,5 +112,30 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
 		component: GridMenu,
 		name: 'GridMenu'
+	},
+	{
+		component: Testimonials,
+		name: 'Testimonials'
+	},
+	{
+		component: InnerHero,
+		name: 'InnerHero',
+		inputs: [
+			{
+				name: 'headline',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'subheading',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'image',
+				type: 'string',
+				defaultValue: ''
+			}
+		]
 	}
 ]
