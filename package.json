@@ -59,6 +59,7 @@
     "@builder.io/sdk-qwik": "^0.4.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "@unocss/reset": "^0.53.3",
+    "motion": "^10.16.2",
     "swiper": "^9.4.1"
   }
 }
