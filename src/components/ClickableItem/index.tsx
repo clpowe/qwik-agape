@@ -3,7 +3,7 @@ import { component$ } from '@builder.io/qwik'
 interface ClickableItemProps {
 	text: string
 	href: string
-	color: string
+	color?: string
 }
 
 export default component$<ClickableItemProps>(({ text, href, color }) => {

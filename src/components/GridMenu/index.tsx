@@ -18,10 +18,10 @@ export default component$(() => {
 				value={linksResource}
 				onPending={() => <>Loading...</>}
 				onRejected={(error) => <>Error: {error.message}</>}
-				onResolved={(links) => {
+				onResolved={(links: any) => {
 					return (
 						<nav class='grid grid-cols-2 gap-4 md:grid-cols-4'>
-							{links.results.map((link) => (
+							{links.results.map((link: any) => (
 								<>
 									<ClickableItem text={link.name} href={link.data.link} />
 								</>

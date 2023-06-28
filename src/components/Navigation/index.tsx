@@ -3,7 +3,6 @@ import {
 	useResource$,
 	Resource,
 	useSignal,
-	useVisibleTask$,
 	$
 } from '@builder.io/qwik'
 
@@ -13,10 +12,18 @@ import { animate } from 'motion'
 export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
 
 export default component$(() => {
-	const menuRef = useSignal<Element>()
+	const menuRef: any = useSignal<Element>()
 
-	useVisibleTask$(() => {
-		if (menuRef.value) return
+	// useVisibleTask$(() => {
+	// 	if (menuRef.value) {
+	// 	}
+	// })
+
+	const openDrawer = $(() => {
+		animate(menuRef.value, { transform: 'translateY(0%)' })
+	})
+	const closeDrawer = $(() => {
+		animate(menuRef.value, { transform: 'translateY(-100%)' })
 	})
 
 	const linksResource = useResource$(() =>
@@ -48,10 +55,10 @@ export default component$(() => {
 					value={linksResource}
 					onPending={() => <>Loading...</>}
 					onRejected={(error) => <>Error: {error.message}</>}
-					onResolved={(links) => (
+					onResolved={(links: any) => (
 						<div class='flex items-center gap-2 text-white '>
 							<nav class='hidden md:flex gap-4'>
-								{links.results.map((link, index) => (
+								{links.results.map((link: any, index: number) => (
 									<a key={index} href={link.data.url}>
 										{link.data.text}
 									</a>
@@ -59,9 +66,7 @@ export default component$(() => {
 							</nav>
 							<button
 								class='flex md:hidden font-bold gap-2 items-center'
-								onClick$={() =>
-									animate(menuRef.value, { transform: 'translateY(0%)' })
-								}
+								onClick$={openDrawer}
 							>
 								Menu
 								<div class='i-mdi-microsoft-xbox-controller-menu text-2xl' />
@@ -77,13 +82,7 @@ export default component$(() => {
 				<nav class='grid p-4 gap-6 font-bold justify-end '>
 					<button
 						class='flex md:hidden font-bold gap-2 items-center'
-						onClick$={() =>
-							animate(
-								menuRef.value,
-								{ transform: 'translateY(-100%)' },
-								{ duration: 0.4 }
-							)
-						}
+						onClick$={closeDrawer}
 					>
 						close
 						<div class='i-mdi-close text-2xl' />
@@ -92,9 +91,9 @@ export default component$(() => {
 						value={linksResource}
 						onPending={() => <>Loading...</>}
 						onRejected={(error) => <>Error: {error.message}</>}
-						onResolved={(links) => (
+						onResolved={(links: any) => (
 							<>
-								{links.results.map((link, index) => (
+								{links.results.map((link: any, index: any) => (
 									<a key={index} href={link.data.url} class='text-3xl '>
 										{link.data.text}
 									</a>

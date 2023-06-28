@@ -11,11 +11,3 @@
 		visibility: hidden;
 	}
 } */
-
-.parent {
-	color: blue;
-
-	& .child {
-		color: red;
-	}
-}

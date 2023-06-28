@@ -1,4 +1,4 @@
-import type { SwiperOptions, Swiper } from 'swiper/types'
+import type { SwiperOptions } from 'swiper/types'
 import { register } from 'swiper/element/bundle'
 import {
 	component$,
@@ -20,7 +20,7 @@ export default component$(() => {
 
 	useVisibleTask$(() => {
 		register()
-		const swiperEl = document.querySelector('swiper-container')
+		const swiperEl: any = document.querySelector('swiper-container')
 		const swiperParams: SwiperOptions = {
 			slidesPerView: 1,
 			breakpoints: {
@@ -72,7 +72,7 @@ export default component$(() => {
 					value={testimonialsResource}
 					onPending={() => <>Loading...</>}
 					onRejected={(error) => <>Error: {error.message}</>}
-					onResolved={(links) => (
+					onResolved={(links: any) => (
 						<>
 							{links?.results.map((link: any) => (
 								<swiper-slide
