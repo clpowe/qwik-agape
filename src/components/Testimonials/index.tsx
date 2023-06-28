@@ -67,7 +67,7 @@ export default component$(() => {
 					titleSecondary='Testimonials'
 				/>
 			</div>
-			<swiper-container speed='500' init='false' free-mode='true' loop='true'>
+			<swiper-container speed='500' init='false' loop='true'>
 				<Resource
 					value={testimonialsResource}
 					onPending={() => <>Loading...</>}
