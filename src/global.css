@@ -27,3 +27,7 @@ body {
 	padding: 0;
 	line-height: inherit;
 }
+
+p {
+	max-width: 75ch;
+}

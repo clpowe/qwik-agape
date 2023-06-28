@@ -1,3 +1,4 @@
+import type { SwiperOptions, Swiper } from 'swiper/types'
 import { register } from 'swiper/element/bundle'
 import {
 	component$,
@@ -20,7 +21,7 @@ export default component$(() => {
 	useVisibleTask$(() => {
 		register()
 		const swiperEl = document.querySelector('swiper-container')
-		const swiperParams = {
+		const swiperParams: SwiperOptions = {
 			slidesPerView: 2,
 			breakpoints: {
 				'@0.00': {
@@ -53,7 +54,9 @@ export default component$(() => {
 		Object.assign(swiperEl, swiperParams)
 
 		// and now initialize it
-		swiperEl.initialize()
+		if (swiperEl != null) {
+			swiperEl.initialize()
+		}
 	})
 
 	const testimonialsResource = useResource$(() =>
@@ -76,6 +79,7 @@ export default component$(() => {
 				centered-slides='auto'
 				speed='500'
 				scrollbar-hide='true'
+				init='false'
 			>
 				<Resource
 					value={testimonialsResource}

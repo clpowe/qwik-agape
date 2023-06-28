@@ -7,6 +7,7 @@ import Section from '~/components/Section'
 import GridMenu from '~/components/GridMenu'
 import InnerHero from '~/components/InnerHero'
 import Testimonials from '~/components/Testimonials'
+import JoinOurTeam from './JoinOurTeam'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -112,6 +113,10 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
 		component: GridMenu,
 		name: 'GridMenu'
+	},
+	{
+		component: JoinOurTeam,
+		name: 'JoinOurTeam'
 	},
 	{
 		component: Testimonials,
