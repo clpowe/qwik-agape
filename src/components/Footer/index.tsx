@@ -1,6 +1,16 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, useResource$, Resource } from '@builder.io/qwik'
+import { getAllContent } from '@builder.io/sdk-qwik'
+
+export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
 
 export default component$(() => {
+	const linksResource = useResource$(() =>
+		getAllContent({
+			model: 'nav-link',
+			apiKey: 'a77f4a06dd2947ec9095c8f325ed362e'
+		})
+	)
+
 	return (
 		<footer class='text-gray-600 body-font mt-auto bg-black'>
 			<div class='container max-w-7xl mx-auto px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col'>
@@ -14,10 +24,10 @@ export default component$(() => {
 							Bar Prep
 						</span>
 					</a>
-					<p class='mt-2 text-sm text-gray-500'>
+					<p class='mt-2 text-sm text-white'>
 						P.O. BOX 26586, Jacksonville, Florida 32226
 					</p>
-					<p class='mt-2 text-sm text-gray-500'>
+					<p class='mt-2 text-sm text-white'>
 						agapechristianbarprep@gmail.com
 						<br />
 						904-234-2853
@@ -29,43 +39,25 @@ export default component$(() => {
 							Quick Links
 						</h2>
 						<nav class='list-none mb-10'>
-							<li>
-								<a class='text-white hover:text-gray-600'>Home</a>
-							</li>
-							<li>
-								<a class='text-white hover:text-gray-600'>About</a>
-							</li>
-							<li>
-								<a class='text-white hover:text-gray-600'>Services</a>
-							</li>
-							<li>
-								<a class='text-white hover:text-gray-600'>Contacts</a>
-							</li>
-							<li>
-								<a class='text-white hover:text-gray-600'>Team Prayer</a>
-							</li>
-							<li>
-								<a class='text-white hover:text-gray-600'>Pay Now</a>
-							</li>
-						</nav>
-					</div>
-					<div class='lg:w-1/4 md:w-1/2 w-full px-4'>
-						<h2 class='title-font font-medium text-gray-900 tracking-widest text-sm mb-3'>
-							CATEGORIES
-						</h2>
-						<nav class='list-none mb-10'>
-							<li>
-								<a class='text-gray-600 hover:text-gray-600'>First Link</a>
-							</li>
-							<li>
-								<a class='text-gray-600 hover:text-gray-800'>Second Link</a>
-							</li>
-							<li>
-								<a class='text-gray-600 hover:text-gray-800'>Third Link</a>
-							</li>
-							<li>
-								<a class='text-gray-600 hover:text-gray-800'>Fourth Link</a>
-							</li>
+							<Resource
+								value={linksResource}
+								onPending={() => <>Loading...</>}
+								onRejected={(error) => <>Error: {error.message}</>}
+								onResolved={(links: any) => (
+									<>
+										{links.results.map((link: any, index: any) => (
+											<li key={index}>
+												<a
+													href={link.data.url}
+													class='text-white hover:text-gray-600'
+												>
+													{link.data.text}
+												</a>
+											</li>
+										))}
+									</>
+								)}
+							/>
 						</nav>
 					</div>
 				</div>

@@ -7,9 +7,9 @@ export default component$(() => {
 	return (
 		<>
 			<Navigation />
-			<mai class='relative'>
+			<main class='relative'>
 				<Slot />
-			</mai>
+			</main>
 			<Footer />
 		</>
 	)

@@ -20,12 +20,12 @@ export default component$(() => {
 
 	const openDrawer = $(() => {
 		menuRef.value.showModal()
-		animate(menuRef.value, { transform: 'translateY(0%)' })
-		const body = document.body
-		const scrollY =
-			document.documentElement.style.getPropertyValue('--scroll-y')
-		body.style.top = `-${scrollY}`
-		body.style.position = 'fixed'
+		animate(menuRef.value, { transform: 'translateY(0%)' }).finished.then(
+			() => {
+				const body = document.body
+				body.style.overflow = 'hidden'
+			}
+		)
 	})
 
 	const closeDrawer = $(() => {
@@ -33,7 +33,7 @@ export default component$(() => {
 			() => {
 				menuRef.value.close()
 				const body = document.body
-				body.style.position = ''
+				body.style.overflow = 'auto'
 			}
 		)
 	})
