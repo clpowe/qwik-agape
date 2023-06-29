@@ -19,7 +19,7 @@ export default component$<InnerHeroProps>(({ headline, image }) => {
 			<img
 				src={image}
 				alt=''
-				height='384px'
+				height='384'
 				class='h-full w-full object-cover object-center-top opacity-50 '
 			/>
 		</div>

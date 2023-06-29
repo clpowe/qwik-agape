@@ -1,14 +1,16 @@
 import { component$, Slot } from '@builder.io/qwik'
 
 import Navigation from '~/components/Navigation'
+import Footer from '~/components/Footer'
 
 export default component$(() => {
 	return (
 		<>
 			<Navigation />
-			<main>
+			<mai class='relative'>
 				<Slot />
-			</main>
+			</mai>
+			<Footer />
 		</>
 	)
 })

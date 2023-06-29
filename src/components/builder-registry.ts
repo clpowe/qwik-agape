@@ -8,6 +8,7 @@ import GridMenu from '~/components/GridMenu'
 import InnerHero from '~/components/InnerHero'
 import Testimonials from '~/components/Testimonials'
 import JoinOurTeam from './JoinOurTeam'
+import Footer from './Footer'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -121,6 +122,10 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
 		component: Testimonials,
 		name: 'Testimonials'
+	},
+	{
+		component: Footer,
+		name: 'Footer'
 	},
 	{
 		component: InnerHero,
