@@ -59,7 +59,7 @@ export default component$(() => {
 	)
 
 	return (
-		<>
+		<section class='py-12'>
 			<div class='container max-w-7xl mx-auto p-4'>
 				<Title
 					eyebrow='What People Say About Us'
@@ -89,6 +89,6 @@ export default component$(() => {
 					)}
 				/>
 			</swiper-container>
-		</>
+		</section>
 	)
 })

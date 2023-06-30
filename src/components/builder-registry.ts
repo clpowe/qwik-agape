@@ -1,6 +1,7 @@
 import type { RegisteredComponent } from '@builder.io/sdk-qwik'
 import MyHeroComponent from '~/components/Hero'
 import ContentSectionOne from '~/components/ContentSectionOne'
+import ContentSectionTwo from '~/components/ContentSectionTwo'
 import Title from '~/components/Title'
 import Body from '~/components/Body'
 import Section from '~/components/Section'
@@ -9,6 +10,7 @@ import InnerHero from '~/components/InnerHero'
 import Testimonials from '~/components/Testimonials'
 import JoinOurTeam from './JoinOurTeam'
 import Footer from './Footer'
+import Feature from './Feature'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -53,6 +55,32 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 			},
 			{
 				name: 'img',
+				type: 'string',
+				defaultValue: 'Lorem Ipsum'
+			}
+		]
+	},
+	{
+		component: ContentSectionTwo,
+		name: 'ContentSectionTwo',
+		inputs: [
+			{
+				name: 'heading',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'headingSecondary',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'body1',
+				type: 'string',
+				defaultValue: 'Lorem Ipsum'
+			},
+			{
+				name: 'body2',
 				type: 'string',
 				defaultValue: 'Lorem Ipsum'
 			}
@@ -126,6 +154,27 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
 		component: Footer,
 		name: 'Footer'
+	},
+	{
+		component: Feature,
+		name: 'Feature',
+		inputs: [
+			{
+				name: 'body1',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'body2',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'body3',
+				type: 'string',
+				defaultValue: ''
+			}
+		]
 	},
 	{
 		component: InnerHero,
