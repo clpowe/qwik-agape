@@ -11,6 +11,7 @@ import Testimonials from '~/components/Testimonials'
 import JoinOurTeam from './JoinOurTeam'
 import Footer from './Footer'
 import Feature from './Feature'
+import TeacherSection from './TeacherSection'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -146,6 +147,10 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
 		component: JoinOurTeam,
 		name: 'JoinOurTeam'
+	},
+	{
+		component: TeacherSection,
+		name: 'TeacherSection'
 	},
 	{
 		component: Testimonials,

@@ -12,7 +12,7 @@ interface SectionProps {
 export default component$<SectionProps>(
 	({ heading, headingSecondary, body }) => {
 		return (
-			<section class='container max-w-7xl mx-auto p-4 space-y-4 '>
+			<section class='myContainer space-y-4 '>
 				<Title title={heading} titleSecondary={headingSecondary} />
 				<Body text={body} />
 			</section>

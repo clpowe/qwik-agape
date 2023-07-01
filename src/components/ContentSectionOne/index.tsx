@@ -16,7 +16,7 @@ export default component$<ContentSectionOneProps>(
 		useStylesScoped$(style)
 		return (
 			<section class='section'>
-				<div class='container max-w-7xl mx-auto px-4 grid grid-cols-1 gap-6 md:grid-cols-2 py-12'>
+				<div class='myContainer grid grid-cols-1 gap-6 md:grid-cols-2 '>
 					<div class='space-y-4'>
 						<Title title={heading} titleSecondary={headingSecondary} />
 						<Body text={body} />
@@ -27,7 +27,8 @@ export default component$<ContentSectionOneProps>(
 						src={img}
 						class='rounded-3xl h-[14.5rem] w-full object-cover object-top md:h-[27rem]'
 						alt=''
-						height={300}
+						width='1970'
+						height='1814'
 					/>
 				</div>
 			</section>

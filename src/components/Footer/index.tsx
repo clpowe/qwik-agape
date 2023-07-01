@@ -1,4 +1,5 @@
-import { component$, useResource$, Resource } from '@builder.io/qwik'
+
+import ImgAgapelogo from '~/media/agapeLogo.svg?jsx';import { component$, useResource$, Resource } from '@builder.io/qwik'
 import { getAllContent } from '@builder.io/sdk-qwik'
 
 export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
@@ -13,10 +14,10 @@ export default component$(() => {
 
 	return (
 		<footer class='text-gray-600 body-font mt-auto bg-black'>
-			<div class='container max-w-7xl mx-auto px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col'>
+			<div class='myContainer px-5 py-24  flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col'>
 				<div class='w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left'>
 					<a class='flex title-font font-medium items-center md:justify-start justify-center text-white'>
-						<img src='/agapeLogo.svg' />
+						<ImgAgapelogo />
 						<path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path>
 
 						<span class='ml-3 text-xl'>
@@ -63,7 +64,7 @@ export default component$(() => {
 				</div>
 			</div>
 			<div class='bg-gray-100'>
-				<div class='container max-w-7xl mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row'>
+				<div class='myContainer py-4 px-5 flex flex-wrap flex-col sm:flex-row'>
 					<p class='text-gray-500 text-sm text-center sm:text-left'>
 						© {new Date().getFullYear()} Agape Christian Bar Prep
 					</p>

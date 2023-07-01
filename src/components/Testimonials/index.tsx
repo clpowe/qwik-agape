@@ -25,21 +25,16 @@ export default component$(() => {
 			slidesPerView: 1,
 			breakpoints: {
 				'375': {
-					slidesPerView: 1.25,
+					slidesPerView: 1,
 					spaceBetween: 30
 				},
 				'768': {
-					slidesPerView: 2.25,
+					slidesPerView: 2,
 					spaceBetween: 30
 				},
 				'1024': {
-					slidesPerView: 3.25,
+					slidesPerView: 3,
 					spaceBetween: 30
-				}
-			},
-			on: {
-				init() {
-					// ...
 				}
 			}
 		}
@@ -59,15 +54,15 @@ export default component$(() => {
 	)
 
 	return (
-		<section class='py-12'>
-			<div class='container max-w-7xl mx-auto p-4'>
+		<section class=''>
+			<div class='myContainer'>
 				<Title
 					eyebrow='What People Say About Us'
 					title='Student'
 					titleSecondary='Testimonials'
 				/>
 			</div>
-			<swiper-container speed='500' init='false' loop='true'>
+			<swiper-container speed='500'>
 				<Resource
 					value={testimonialsResource}
 					onPending={() => <>Loading...</>}

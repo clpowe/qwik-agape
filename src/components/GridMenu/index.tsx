@@ -13,7 +13,7 @@ export default component$(() => {
 	)
 
 	return (
-		<div class='container mx-auto max-w-7xl p-4 '>
+		<div class='myContainer p-4 '>
 			<Resource
 				value={linksResource}
 				onPending={() => <>Loading...</>}

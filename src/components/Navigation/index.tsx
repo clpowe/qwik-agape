@@ -1,4 +1,5 @@
-import {
+
+import ImgAgape from '~/media/agape.svg?jsx';import {
 	component$,
 	useResource$,
 	Resource,
@@ -53,10 +54,9 @@ export default component$(() => {
 						admin@agapechristianbarprep.com / 1-800-321-5588
 					</div>
 				</div>
-				<nav class='container max-w-7xl flex justify-between p-4 uppercase mx-auto'>
+				<nav class='myContainer flex justify-between uppercase '>
 					<div class='flex items-center'>
-						<img
-							src='/agape.svg'
+						<ImgAgape
 							class='w-20'
 							alt='Agape Christian Bar Prep Logo'
 						/>
