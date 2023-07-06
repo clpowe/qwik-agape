@@ -38,6 +38,7 @@ export default component$(() => {
 											name={teacher.data.name}
 											expertise={teacher.data.expertiselist}
 											image={teacher.data.thumbnail}
+											slug={teacher.data.slug}
 										/>
 									)
 								})}
