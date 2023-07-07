@@ -1,4 +1,4 @@
-import { Resource, component$, useResource$, $ } from '@builder.io/qwik'
+import { Resource, component$, $ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import { getAllContent } from '@builder.io/sdk-qwik'
 import { Image, type ImageTransformerProps, useImageProvider } from 'qwik-image'
@@ -6,7 +6,15 @@ import { Image, type ImageTransformerProps, useImageProvider } from 'qwik-image'
 export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
 
 export const useProductLoader = routeLoader$(async ({ params, status }) => {
-	const data = params.slug
+	const data = getAllContent({
+		model: 'teachers',
+		apiKey: apiKey,
+		query: {
+			data: {
+				slug: params.slug
+			}
+		}
+	})
 
 	if (!data) {
 		status(404)
@@ -15,19 +23,7 @@ export const useProductLoader = routeLoader$(async ({ params, status }) => {
 })
 
 export default component$(() => {
-	const slug = useProductLoader()
-
-	const teacherResource = useResource$(() =>
-		getAllContent({
-			model: 'teachers',
-			apiKey: apiKey,
-			query: {
-				data: {
-					slug: slug.value
-				}
-			}
-		})
-	)
+	const teacher = useProductLoader()
 
 	const imageTransformer$ = $(
 		({ src, width, height }: ImageTransformerProps): string => {
@@ -47,7 +43,7 @@ export default component$(() => {
 		<>
 			<div class='h-40 bg-black'></div>
 			<Resource
-				value={teacherResource}
+				value={teacher}
 				onPending={() => <>Loading...</>}
 				onRejected={(error) => <>Error: {error.message}</>}
 				onResolved={(teacher: any) => {
