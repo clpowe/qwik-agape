@@ -22,21 +22,21 @@ export default component$(() => {
 		register()
 		const swiperEl: any = document.querySelector('swiper-container')
 		const swiperParams: SwiperOptions = {
-			slidesPerView: 1,
-			breakpoints: {
-				'375': {
-					slidesPerView: 1,
-					spaceBetween: 30
-				},
-				'768': {
-					slidesPerView: 2,
-					spaceBetween: 30
-				},
-				'1024': {
-					slidesPerView: 3,
-					spaceBetween: 30
-				}
-			}
+			slidesPerView: 1
+			// breakpoints: {
+			// 	'375': {
+			// 		slidesPerView: 1,
+			// 		spaceBetween: 30
+			// 	},
+			// 	'768': {
+			// 		slidesPerView: 2,
+			// 		spaceBetween: 30
+			// 	},
+			// 	'1024': {
+			// 		slidesPerView: 3,
+			// 		spaceBetween: 30
+			// 	}
+			// }
 		}
 		Object.assign(swiperEl, swiperParams)
 
@@ -62,7 +62,12 @@ export default component$(() => {
 					titleSecondary='Testimonials'
 				/>
 			</div>
-			<swiper-container speed='500'>
+			<swiper-container
+				speed='500'
+				centered-slides='true'
+				space-between='30'
+				slides-per-view='auto'
+			>
 				<Resource
 					value={testimonialsResource}
 					onPending={() => <>Loading...</>}
@@ -72,7 +77,7 @@ export default component$(() => {
 							{links?.results.map((link: any) => (
 								<swiper-slide
 									key={link.id}
-									class=' grid p-8  card rounded-3xl h-auto bg-gray-1 w-[300px]'
+									class='grid p-8  card rounded-3xl h-auto bg-gray-1 max-w-[40ch]'
 								>
 									<p class='text-sm'>{link.data.testimonial}</p>
 									<p class='font-bold text-md place-self-end mt-4'>
