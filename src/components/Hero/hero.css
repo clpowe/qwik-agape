@@ -1,5 +1,5 @@
 .hero {
-	background-image: url('/heroSM.png');
+	background-image: url('https://ik.imagekit.io/cpds/Agape_Christian/heroSM_gTV--RM5u.png?updatedAt=1688698892509');
 }
 
 .headline {
@@ -9,11 +9,11 @@
 
 @media (min-width: 641px) and (max-width: 1024px) {
 	.hero {
-		background-image: url('/HeroImageMd.png');
+		background-image: url('https://ik.imagekit.io/cpds/Agape_Christian/HeroImageMd_7IJG72IBh.png?updatedAt=1688698892851');
 	}
 }
 @media (min-width: 1025px) {
 	.hero {
-		background-image: url('/herolg.png');
+		background-image: url('https://ik.imagekit.io/cpds/Agape_Christian/herolg_Bq4Zx6fYD.png?updatedAt=1688698893156');
 	}
 }
