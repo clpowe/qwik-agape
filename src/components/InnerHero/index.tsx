@@ -1,5 +1,4 @@
-import { component$, useStylesScoped$ } from '@builder.io/qwik'
-import style from './innerHero.css?inline'
+import { component$ } from '@builder.io/qwik'
 
 interface InnerHeroProps {
 	headline: string
@@ -8,8 +7,6 @@ interface InnerHeroProps {
 }
 
 export default component$<InnerHeroProps>(({ headline, image }) => {
-	useStylesScoped$(style)
-
 	return (
 		<div class='relative h-[24rem] overflow-hidden bg-black'>
 			<div class='container max-w-7xl mx-auto absolute w-full h-full grid place-content-center'>
