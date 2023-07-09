@@ -18,9 +18,9 @@ export default component$<ContentSectionOneProps>(
 		useStylesScoped$(style)
 
 		const imageTransformer$ = $(
-			({ src, width, height }: ImageTransformerProps): string => {
+			({ src, height }: ImageTransformerProps): string => {
 				// Here you can set your favorite image loaders service
-				return `https://ik.imagekit.io/cpds/Agape_Christian/${src}?tr=w-${width},h-${height}`
+				return `https://ik.imagekit.io/cpds/Agape_Christian/${src}?tr=h-${height}`
 			}
 		)
 
@@ -43,10 +43,11 @@ export default component$<ContentSectionOneProps>(
 					<Image
 						src={img}
 						layout='constrained'
-						class='rounded-3xl h-[14.5rem] w-full object-cover object-top md:h-[27rem]'
+						objectFit='cover'
+						class='rounded-3xl  w-full  object-top h-[24rem]'
 						alt=''
-						width={400}
-						height={500}
+						width={1280}
+						height={1000}
 					/>
 				</div>
 			</section>

@@ -2,6 +2,7 @@ import { Resource, component$, $ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import { getAllContent } from '@builder.io/sdk-qwik'
 import { Image, type ImageTransformerProps, useImageProvider } from 'qwik-image'
+import { Tabs } from '~/integrations/react/react'
 
 export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
 
@@ -26,9 +27,9 @@ export default component$(() => {
 	const teacher = useProductLoader()
 
 	const imageTransformer$ = $(
-		({ src, width, height }: ImageTransformerProps): string => {
+		({ src, height }: ImageTransformerProps): string => {
 			// Here you can set your favorite image loaders service
-			return `https://ik.imagekit.io/cpds/Agape_Christian/${src}?tr=w-${width},h-${height}`
+			return `https://ik.imagekit.io/cpds/Agape_Christian/${src}?tr=h-${height}`
 		}
 	)
 
@@ -49,9 +50,9 @@ export default component$(() => {
 				onResolved={(teacher: any) => {
 					return (
 						<main class='flex flex-col myContainer max-w-4xl md:flex-row gap-6'>
-							<div>
+							<div class='min-w-auto md:min-w-[340px]'>
 								<Image
-									layout='constrained'
+									layout='fixed'
 									objectFit='cover'
 									width={400}
 									height={500}
@@ -60,50 +61,26 @@ export default component$(() => {
 									class='object-bottom rounded-6'
 									src={teacher.results[0].data.mainImage}
 								/>
+								<div>
+									<div>
+										<h1 class='font-bold text-5xl '>
+											{teacher.results[0].data.name}
+										</h1>
+										<div class='font-bold text-lg '>
+											{teacher.results[0].data.title}
+										</div>
+									</div>
+
+									<Tabs
+										addmissions={teacher.results[0].data.barAdmissions}
+										education={teacher.results[0].data.education}
+										expertise={teacher.results[0].data.expertiselist}
+									/>
+								</div>
 							</div>
 							<div class='space-y-8'>
 								<div>
-									<h1 class='font-bold text-5xl '>
-										{teacher.results[0].data.name}
-									</h1>
-									<div class='font-bold text-lg '>
-										{teacher.results[0].data.title}
-									</div>
-								</div>
-								<div>
-									<h2 class='font-bold text-2xl '>Education</h2>
-									<ul>
-										{teacher.results[0].data.education.map(
-											(edu: any, index: number) => {
-												return <li key={index}>{edu.school}</li>
-											}
-										)}
-									</ul>
-								</div>
-
-								<div>
-									<h2 class='font-bold text-2xl '>Bar Admissions</h2>
-									<ul>
-										{teacher.results[0].data.barAdmissions.map(
-											(bar: any, index: number) => {
-												return <li key={index}>{bar.admission}</li>
-											}
-										)}
-									</ul>
-								</div>
-								<div>
-									<h2 class='font-bold text-2xl '>Expertise</h2>
-									<ul>
-										{teacher.results[0].data.expertiselist.map(
-											(exp: any, index: number) => {
-												return <li key={index}>{exp.expertise}</li>
-											}
-										)}
-									</ul>
-								</div>
-
-								<div>
-									<h2 class='font-bold text-2xl '>Bio</h2>
+									<h2 class='font-bold text-2xl '>Teacher Bio</h2>
 									<div
 										dangerouslySetInnerHTML={teacher.results[0].data.bio}
 									></div>

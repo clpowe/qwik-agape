@@ -65,7 +65,6 @@ export default component$(() => {
 			<swiper-container
 				speed='500'
 				centered-slides='true'
-				space-between='30'
 				slides-per-view='auto'
 			>
 				<Resource
