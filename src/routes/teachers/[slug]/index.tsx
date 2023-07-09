@@ -49,44 +49,45 @@ export default component$(() => {
 				onRejected={(error) => <>Error: {error.message}</>}
 				onResolved={(teacher: any) => {
 					return (
-						<main class='flex flex-col myContainer max-w-4xl md:flex-row gap-6'>
-							<div class='min-w-auto md:min-w-[340px]'>
-								<Image
-									layout='fixed'
-									objectFit='cover'
-									width={400}
-									height={500}
-									alt={`A photo of ${teacher.results[0].data.name}`}
-									placeholder='#e6e6e6'
-									class='object-bottom rounded-6'
-									src={teacher.results[0].data.mainImage}
-								/>
-								<div>
-									<div>
-										<h1 class='font-bold text-5xl '>
-											{teacher.results[0].data.name}
-										</h1>
-										<div class='font-bold text-lg '>
-											{teacher.results[0].data.title}
-										</div>
-									</div>
-
-									<Tabs
-										addmissions={teacher.results[0].data.barAdmissions}
-										education={teacher.results[0].data.education}
-										expertise={teacher.results[0].data.expertiselist}
+						<>
+							<div class='myContainer max-w-4xl'>
+								<h1 class='font-bold text-5xl '>
+									{teacher.results[0].data.name}
+								</h1>
+								<div class='font-bold text-lg '>
+									{teacher.results[0].data.title}
+								</div>
+							</div>
+							<main class='flex flex-col myContainer max-w-4xl md:flex-row gap-6'>
+								<div class='min-w-a md:min-w-[340px]'>
+									<Image
+										layout='fixed'
+										objectFit='cover'
+										width={400}
+										height={500}
+										alt={`A photo of ${teacher.results[0].data.name}`}
+										placeholder='#e6e6e6'
+										class='object-bottom rounded-6'
+										src={teacher.results[0].data.mainImage}
 									/>
+									<div>
+										<Tabs
+											addmissions={teacher.results[0].data.barAdmissions}
+											education={teacher.results[0].data.education}
+											expertise={teacher.results[0].data.expertiselist}
+										/>
+									</div>
 								</div>
-							</div>
-							<div class='space-y-8'>
-								<div>
-									<h2 class='font-bold text-2xl '>Teacher Bio</h2>
-									<div
-										dangerouslySetInnerHTML={teacher.results[0].data.bio}
-									></div>
+								<div class='space-y-8'>
+									<div>
+										<h2 class='font-bold text-2xl '>Teacher Bio</h2>
+										<div
+											dangerouslySetInnerHTML={teacher.results[0].data.bio}
+										></div>
+									</div>
 								</div>
-							</div>
-						</main>
+							</main>
+						</>
 					)
 				}}
 			/>
