@@ -12,6 +12,7 @@ import JoinOurTeam from './JoinOurTeam'
 import Footer from './Footer'
 import Feature from './Feature'
 import TeacherSection from './TeacherSection'
+import ClickableItem from './ClickableItem'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -114,6 +115,27 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 		inputs: [
 			{
 				name: 'text',
+				type: 'string',
+				defaultValue: 'heading'
+			}
+		]
+	},
+	{
+		component: ClickableItem,
+		name: 'ClickableItem',
+		inputs: [
+			{
+				name: 'text',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'href',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'color',
 				type: 'string',
 				defaultValue: 'heading'
 			}
