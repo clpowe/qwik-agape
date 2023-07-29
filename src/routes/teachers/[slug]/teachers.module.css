@@ -1,0 +1,21 @@
+details > ul {
+	padding: 0.5rem;
+	background-color: #f3f4f6;
+}
+
+details[open] > summary {
+	border-bottom: 2px solid #991b1b;
+}
+
+summary {
+	list-style-type: none;
+	font-size: large;
+	font-weight: bold;
+	padding: 0.5rem 0;
+}
+summary::before {
+	content: '';
+}
+
+.test {
+}

@@ -2,7 +2,7 @@ import { Resource, component$, $ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import { getAllContent } from '@builder.io/sdk-qwik'
 import { Image, type ImageTransformerProps, useImageProvider } from 'qwik-image'
-import { Tabs } from '~/integrations/react/react'
+import styles from './teachers.module.css'
 
 export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
 
@@ -51,10 +51,10 @@ export default component$(() => {
 					return (
 						<>
 							<div class='myContainer max-w-4xl'>
-								<h1 class='font-bold text-5xl '>
+								<h1 class={[styles.test, 'font-bold', 'text-5xl']}>
 									{teacher.results[0].data.name}
 								</h1>
-								<div class='font-bold text-lg '>
+								<div class='font-bold text-lg'>
 									{teacher.results[0].data.title}
 								</div>
 							</div>
@@ -70,12 +70,31 @@ export default component$(() => {
 										class='object-bottom rounded-6'
 										src={teacher.results[0].data.mainImage}
 									/>
-									<div>
-										<Tabs
-											addmissions={teacher.results[0].data.barAdmissions}
-											education={teacher.results[0].data.education}
-											expertise={teacher.results[0].data.expertiselist}
-										/>
+									<div class='grid gap-4'>
+										<details open>
+											<summary>Education</summary>
+											<ul>
+												{teacher.results[0].data.barAdmissions.map((e: any) => {
+													return <li key={e.admission}>{e.admission}</li>
+												})}
+											</ul>
+										</details>
+										<details open>
+											<summary>Bar Admission</summary>
+											<ul>
+												{teacher.results[0].data.education.map((e: any) => {
+													return <li key={e.school}>{e.school}</li>
+												})}
+											</ul>
+										</details>
+										<details open>
+											<summary>Expertise</summary>
+											<ul>
+												{teacher.results[0].data.expertiselist.map((e: any) => {
+													return <li key={e.expertise}>{e.expertise}</li>
+												})}
+											</ul>
+										</details>
 									</div>
 								</div>
 								<div class='space-y-8'>

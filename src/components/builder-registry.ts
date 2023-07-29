@@ -13,6 +13,7 @@ import Footer from './Footer'
 import Feature from './Feature'
 import TeacherSection from './TeacherSection'
 import ClickableItem from './ClickableItem'
+import ContentTitle from './ContentTitle'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -90,6 +91,27 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	},
 	{
 		component: Title,
+		name: 'Title',
+		inputs: [
+			{
+				name: 'title',
+				type: 'string',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'eyebrow',
+				type: 'eyebrow',
+				defaultValue: 'heading'
+			},
+			{
+				name: 'titleSecondary',
+				type: 'string',
+				defaultValue: 'heading'
+			}
+		]
+	},
+	{
+		component: ContentTitle,
 		name: 'Title',
 		inputs: [
 			{
