@@ -7,7 +7,10 @@ interface BodyProps {
 export default component$<BodyProps>(({ text }) => {
 	return (
 		<>
-			<p class='text-base text-gray-500 max-w-[75ch]'>{text}</p>
+			<div
+				class='text-base text-gray-500 max-w-[75ch]'
+				dangerouslySetInnerHTML={text}
+			></div>
 		</>
 	)
 })

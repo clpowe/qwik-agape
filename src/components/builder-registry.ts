@@ -14,6 +14,7 @@ import Feature from './Feature'
 import TeacherSection from './TeacherSection'
 import ClickableItem from './ClickableItem'
 import ContentTitle from './ContentTitle'
+import NumberedList from './NumberedList'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -112,7 +113,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	},
 	{
 		component: ContentTitle,
-		name: 'Title',
+		name: 'Content Title',
 		inputs: [
 			{
 				name: 'title',
@@ -137,7 +138,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 		inputs: [
 			{
 				name: 'text',
-				type: 'string',
+				type: 'richText',
 				defaultValue: 'heading'
 			}
 		]
@@ -179,7 +180,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 			},
 			{
 				name: 'body',
-				type: 'string',
+				type: 'longText',
 				defaultValue: 'heading'
 			}
 		]
@@ -205,17 +206,35 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 		name: 'Footer'
 	},
 	{
+		component: NumberedList,
+		name: 'Numbered List',
+		inputs: [
+			{
+				name: 'listItems',
+				type: 'list',
+				defaultValue: [{ item: 'hello' }],
+				subFields: [
+					{
+						name: 'item',
+						type: 'string',
+						defaultValue: '"You are the best"'
+					}
+				]
+			}
+		]
+	},
+	{
 		component: Feature,
 		name: 'Feature',
 		inputs: [
 			{
 				name: 'body1',
-				type: 'string',
+				type: 'longText',
 				defaultValue: 'heading'
 			},
 			{
 				name: 'body2',
-				type: 'string',
+				type: 'longText',
 				defaultValue: 'heading'
 			},
 			{

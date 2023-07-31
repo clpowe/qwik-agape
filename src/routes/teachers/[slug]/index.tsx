@@ -48,6 +48,7 @@ export default component$(() => {
 				onPending={() => <>Loading...</>}
 				onRejected={(error) => <>Error: {error.message}</>}
 				onResolved={(teacher: any) => {
+					console.log(teacher.results[0].data.bimage)
 					return (
 						<>
 							<div class='myContainer max-w-4xl'>
@@ -60,15 +61,15 @@ export default component$(() => {
 							</div>
 							<main class='flex flex-col myContainer max-w-4xl md:flex-row gap-6'>
 								<div class='min-w-a md:min-w-[340px]'>
-									<Image
-										layout='fixed'
-										objectFit='cover'
+									<img
+										//layout='fixed'
+										//objectFit='cover'
 										width={400}
 										height={500}
 										alt={`A photo of ${teacher.results[0].data.name}`}
 										placeholder='#e6e6e6'
 										class='object-bottom rounded-6'
-										src={teacher.results[0].data.mainImage}
+										src={teacher.results[0].data.bimage}
 									/>
 									<div class='grid gap-4'>
 										<details open>
