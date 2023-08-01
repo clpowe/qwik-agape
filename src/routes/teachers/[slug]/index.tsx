@@ -29,7 +29,7 @@ export default component$(() => {
 	const imageTransformer$ = $(
 		({ src, height }: ImageTransformerProps): string => {
 			// Here you can set your favorite image loaders service
-			return `https://ik.imagekit.io/cpds/Agape_Christian/${src}?tr=h-${height}`
+			return `${src}?tr=h-${height}`
 		}
 	)
 
@@ -61,9 +61,9 @@ export default component$(() => {
 							</div>
 							<main class='flex flex-col myContainer max-w-4xl md:flex-row gap-6'>
 								<div class='min-w-a md:min-w-[340px]'>
-									<img
-										//layout='fixed'
-										//objectFit='cover'
+									<Image
+										layout='fixed'
+										objectFit='cover'
 										width={400}
 										height={500}
 										alt={`A photo of ${teacher.results[0].data.name}`}

@@ -55,7 +55,7 @@ export default component$(() => {
 					</div>
 				</div>
 				<nav class='myContainer flex justify-between uppercase '>
-					<div class='flex items-end'>
+					<div class='flex items-center'>
 						<ImgAgape class='w-20' alt='Agape Christian Bar Prep Logo' />
 						<span class='hidden md:block text-white font-bold ml-4'>
 							Agape Christian Bar Prep

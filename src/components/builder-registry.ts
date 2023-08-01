@@ -260,8 +260,8 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 			},
 			{
 				name: 'image',
-				type: 'string',
-				defaultValue: ''
+				type: 'file',
+				allowedFileTypes: ['jpeg', 'jpg', 'png', 'webp']
 			}
 		]
 	}

@@ -16,7 +16,11 @@ export default component$<ListProps>(({ listItems }) => {
 	return (
 		<ol class='custom-counter'>
 			{listItems.map((item) => {
-				return <li key={item.item}>{item.item}</li>
+				return (
+					<li key={item.item} class='text-gray-500'>
+						{item.item}
+					</li>
+				)
 			})}
 		</ol>
 	)
