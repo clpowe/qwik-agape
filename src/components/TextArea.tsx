@@ -10,7 +10,7 @@ type InputProps = {
 	id: string
 }
 
-export const Input = component$<InputProps>(
+export const TextArea = component$<InputProps>(
 	({ name, label, placeholder, required, id }) => {
 		return (
 			<div>
