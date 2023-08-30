@@ -3,18 +3,20 @@ import Navigation from '../Navigation'
 
 interface InnerHeroProps {
 	headline: string
-	image: string
+	subtitle: string
+	image?: string
 }
 
-export default component$<InnerHeroProps>(({ headline, image }) => {
+export default component$<InnerHeroProps>(({ headline, image, subtitle }) => {
 	return (
 		<>
 			<Navigation />
 			<div class='relative h-[24rem] overflow-hidden bg-black flex place-content-center'>
 				<div class='px-4  container max-w-7xl mx-auto absolute w-full h-full grid items-end'>
-					<h1 class='text-5xl z-10 font-bold text-white mb-[10%] container max-w-7xl mx-auto'>
-						{headline}
-					</h1>
+					<div class='z-10 mb-[10%] container max-w-7xl mx-auto'>
+						<h1 class='text-5xl font-bold text-white '>{headline}</h1>
+						<p class='font-bold text-lg text-white'>{subtitle}</p>
+					</div>
 				</div>
 
 				<img

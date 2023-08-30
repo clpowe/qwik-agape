@@ -3,6 +3,7 @@ import { routeLoader$ } from '@builder.io/qwik-city'
 import { getAllContent } from '@builder.io/sdk-qwik'
 import { Image, type ImageTransformerProps, useImageProvider } from 'qwik-image'
 import styles from './teachers.module.css'
+import InnerHero from '~/components/InnerHero'
 
 export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
 
@@ -42,7 +43,6 @@ export default component$(() => {
 
 	return (
 		<>
-			<div class='h-40 bg-black'></div>
 			<Resource
 				value={teacher}
 				onPending={() => <>Loading...</>}
@@ -51,14 +51,11 @@ export default component$(() => {
 					console.log(teacher.results[0].data.bimage)
 					return (
 						<>
-							<div class='myContainer max-w-4xl'>
-								<h1 class={[styles.test, 'font-bold', 'text-5xl']}>
-									{teacher.results[0].data.name}
-								</h1>
-								<div class='font-bold text-lg'>
-									{teacher.results[0].data.title}
-								</div>
-							</div>
+							<InnerHero
+								headline={teacher.results[0].data.name}
+								subtitle={teacher.results[0].data.title}
+							/>
+
 							<main class='flex flex-col myContainer max-w-4xl md:flex-row gap-6'>
 								<div class='min-w-a md:min-w-[340px]'>
 									<Image
