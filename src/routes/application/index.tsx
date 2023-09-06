@@ -5,6 +5,7 @@ import { TextArea } from '~/components/TextArea'
 import { SingleSelect } from '~/components/SingleSelect'
 import Airtable from 'airtable'
 import { createClient } from '@supabase/supabase-js'
+import InnerHero from '~/components/InnerHero'
 
 const supabase = createClient(
 	'https://nfsivlvxfmhroorykvak.supabase.co',
@@ -178,322 +179,308 @@ export default component$(() => {
 	const action = useApplication()
 
 	return (
-		<Form action={action}>
-			<div class='space-y-12 max-w-[60ch] mx-auto'>
-				<div class='border-b border-gray-900/10 pb-12'>
-					<Input
-						name='fldimJcyXXIeXfzyX'
-						id='fldimJcyXXIeXfzyX'
-						placeholder='Full Name'
-						type='text'
-						label='Name'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldimJcyXXIeXfzyX}
-					/>
-					<Input
-						name='fldVYudWzqKR5odLo'
-						placeholder='Last Name'
-						id='fldVYudWzqKR5odLo'
-						type='text'
-						label='2. What is your mailing address?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldVYudWzqKR5odLo}
-					/>
-					<Input
-						name='fldrtWiz5sX3eckqr'
-						placeholder='email@address.com'
-						id='fldrtWiz5sX3eckqr'
-						type='email'
-						label='3. What is your preferred email address?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldrtWiz5sX3eckqr}
-					/>
-					<Input
-						name='fldxaoND1oHtMUvAn'
-						placeholder='(111) 123-4567'
-						id='fldxaoND1oHtMUvAn'
-						type='tel'
-						label='4. What is your cell phone number?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldxaoND1oHtMUvAn}
-					/>
-
-					{/* <div>
-						<label
-							for='fldBa0zLdwOtgXaAb'
-							class='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-						>
-							5. What is your preferred method of communication?
-						</label>
-						<select
+		<>
+			<InnerHero headline='Application' />
+			<Form action={action}>
+				<div class='space-y-12 max-w-[60ch] mx-auto'>
+					<div class='border-b border-gray-900/10 pb-12'>
+						<Input
+							name='fldimJcyXXIeXfzyX'
+							id='fldimJcyXXIeXfzyX'
+							placeholder='Full Name'
+							type='text'
+							label='Name'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldimJcyXXIeXfzyX}
+						/>
+						<Input
+							name='fldVYudWzqKR5odLo'
+							placeholder='mailing address'
+							id='fldVYudWzqKR5odLo'
+							type='text'
+							label='2. What is your mailing address?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldVYudWzqKR5odLo}
+						/>
+						<Input
+							name='fldrtWiz5sX3eckqr'
+							placeholder='email@address.com'
+							id='fldrtWiz5sX3eckqr'
+							type='email'
+							label='3. What is your preferred email address?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldrtWiz5sX3eckqr}
+						/>
+						<Input
+							name='fldxaoND1oHtMUvAn'
+							placeholder='(111) 123-4567'
+							id='fldxaoND1oHtMUvAn'
+							type='tel'
+							label='4. What is your cell phone number?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldxaoND1oHtMUvAn}
+						/>
+						<SingleSelect
 							id='fldBa0zLdwOtgXaAb'
-							class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+							value='Text'
 							name='fldBa0zLdwOtgXaAb'
+							label='5. What is your preferred method of communication?'
+							options={['Email', 'Phone', 'Text']}
+						/>
+						<SingleSelect
+							id='fldpV190z6nThgrQx'
+							value='Other'
+							name='fldpV190z6nThgrQx'
+							label='6. What is your marital status?'
+							options={['Married', 'Single', 'Other']}
+						/>
+						<TextArea
+							id='fld16nTUwI0ltg2Im'
+							name='fld16nTUwI0ltg2Im'
+							label='7. How many children do you have and what are their ages?'
+							placeholder=''
+						/>
+						<TextArea
+							id='fldVOWwstEB17l7Ru'
+							name='fldVOWwstEB17l7Ru'
+							label='8. Do you have any other obligations that could potentially take away from your study time, such as caring for a sick family member, planned trips, etc.? If so, please explain.'
+							placeholder=''
+						/>
+						<SingleSelect
+							id='fldDxpFGkotOrE9jW'
+							value='Other'
+							name='fldDxpFGkotOrE9jW'
+							label='9. What is your t-shirt size?'
+							options={['XS', 'S', 'M', 'L', 'XL', '2X', '3X', '4X']}
+						/>
+						<TextArea
+							id='fldEA9ECo9vHykhVZ'
+							name='fldEA9ECo9vHykhVZ'
+							label='10. How did you hear about Agape Christian Bar Prep?'
+							placeholder=''
+						/>
+						<TextArea
+							id='fldmG8b69avNhjnPW'
+							name='fldmG8b69avNhjnPW'
+							label='11. Who can we thank for referring you?'
+							placeholder=''
+						/>
+
+						<Input
+							name='fldXrwRXkUX3y9pHR'
+							placeholder=''
+							id='fldXrwRXkUX3y9pHR'
+							type='text'
+							label='12. What law school did you attend or what law school are you attending?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldXrwRXkUX3y9pHR}
+						/>
+						<Input
+							name='fldIT9AUQfexLNpyU'
+							placeholder=''
+							id='fldIT9AUQfexLNpyU'
+							type='text'
+							label='13. What year did you graduate law school or when will you graduate law school?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldIT9AUQfexLNpyU}
+						/>
+						<Input
+							name='fldOyCIoZJJdVDgbh'
+							placeholder=''
+							id='fldOyCIoZJJdVDgbh'
+							type='text'
+							label='14. What is your law school cumulative GPA?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldOyCIoZJJdVDgbh}
+						/>
+
+						<label
+							for='fldwtQtKsdcrDpayg'
+							class={[
+								'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+							]}
 						>
-							<option value='Email'>Email</option>
-							<option value='Phone'>Phone</option>
-							<option value='Text'>Text</option>
-						</select>
-					</div> */}
+							<span>
+								15. Please upload a copy of your law school transcript.
+							</span>
+							<input
+								type='file'
+								multiple
+								name='fldwtQtKsdcrDpayg'
+								id='fldwtQtKsdcrDpayg'
+							/>
+							{action.value?.failed && (
+								<p>{action.value?.fieldErrors?.fldwtQtKsdcrDpayg}</p>
+							)}
+						</label>
 
-					<SingleSelect
-						id='fldBa0zLdwOtgXaAb'
-						value='Text'
-						name='fldBa0zLdwOtgXaAb'
-						label='5. What is your preferred method of communication?'
-						options={['Email', 'Phone', 'Text']}
-					/>
-					<SingleSelect
-						id='fldpV190z6nThgrQx'
-						value='Other'
-						name='fldpV190z6nThgrQx'
-						label='6. What is your marital status?'
-						options={['Married', 'Single', 'Other']}
-					/>
-					<TextArea
-						id='fld16nTUwI0ltg2Im'
-						name='fld16nTUwI0ltg2Im'
-						label='7. How many children do you have and what are their ages?'
-						placeholder=''
-					/>
-					<TextArea
-						id='fldVOWwstEB17l7Ru'
-						name='fldVOWwstEB17l7Ru'
-						label='8. Do you have any other obligations that could potentially take away from your study time, such as caring for a sick family member, planned trips, etc.? If so, please explain.'
-						placeholder=''
-					/>
-					<SingleSelect
-						id='fldDxpFGkotOrE9jW'
-						value='Other'
-						name='fldDxpFGkotOrE9jW'
-						label='9. What is your t-shirt size?'
-						options={['XS', 'S', 'M', 'L', 'XL', '2X', '3X', '4X']}
-					/>
-					<TextArea
-						id='fldEA9ECo9vHykhVZ'
-						name='fldEA9ECo9vHykhVZ'
-						label='10. How did you hear about Agape Christian Bar Prep?'
-						placeholder=''
-					/>
-					<TextArea
-						id='fldmG8b69avNhjnPW'
-						name='fldmG8b69avNhjnPW'
-						label='11. Who can we thank for referring you?'
-						placeholder=''
-					/>
-
-					<Input
-						name='fldXrwRXkUX3y9pHR'
-						placeholder=''
-						id='fldXrwRXkUX3y9pHR'
-						type='text'
-						label='12. What law school did you attend or what law school are you attending?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldXrwRXkUX3y9pHR}
-					/>
-					<Input
-						name='fldIT9AUQfexLNpyU'
-						placeholder=''
-						id='fldIT9AUQfexLNpyU'
-						type='text'
-						label='13. What year did you graduate law school or when will you graduate law school?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldIT9AUQfexLNpyU}
-					/>
-					<Input
-						name='fldOyCIoZJJdVDgbh'
-						placeholder=''
-						id='fldOyCIoZJJdVDgbh'
-						type='text'
-						label='14. What is your law school cumulative GPA?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldOyCIoZJJdVDgbh}
-					/>
-
-					<label
-						for='fldwtQtKsdcrDpayg'
-						class={[
-							'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
-						]}
-					>
-						<span>15. Please upload a copy of your law school transcript.</span>
-						<input
-							type='file'
-							multiple
-							name='fldwtQtKsdcrDpayg'
-							id='fldwtQtKsdcrDpayg'
+						<Input
+							name='fldoOhpWPW0gs2yMX'
+							placeholder=''
+							id='fldoOhpWPW0gs2yMX'
+							type='number'
+							label='16. What was your LSAT score?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldoOhpWPW0gs2yMX}
 						/>
-						{action.value?.failed && (
-							<p>{action.value?.fieldErrors?.fldwtQtKsdcrDpayg}</p>
-						)}
-					</label>
 
-					<Input
-						name='fldoOhpWPW0gs2yMX'
-						placeholder=''
-						id='fldoOhpWPW0gs2yMX'
-						type='number'
-						label='16. What was your LSAT score?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldoOhpWPW0gs2yMX}
-					/>
-
-					<Input
-						name='fldRAg0746GAu8PVC'
-						placeholder=''
-						id='fldRAg0746GAu8PVC'
-						type='text'
-						label='17. What college did you attend for undergraduate and, if applicable, graduate school?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldRAg0746GAu8PVC}
-					/>
-					<Input
-						name='fld9TArJ7BN7lZFYk'
-						placeholder=''
-						id='fld9TArJ7BN7lZFYk'
-						type='text'
-						label='18. What was your major in college and, if applicable, graduate school?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fld9TArJ7BN7lZFYk}
-					/>
-					<Input
-						name='fldlLFKIGiw8La2xZ'
-						placeholder=''
-						id='fldlLFKIGiw8La2xZ'
-						type='text'
-						label='19. What was your undergraduate cumulative GPA and, if applicable, graduate school?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldlLFKIGiw8La2xZ}
-					/>
-					<SingleSelect
-						id='fldSStHTLPOU0iAue'
-						name='fldSStHTLPOU0iAue'
-						label='20. Which tutoring program or writing course interest you?'
-						multiple={true}
-						options={[
-							'Bar Prep 101',
-							'Bar Prep 101 Plus',
-							'Essay Writing Boot Camp',
-							'MPT Writing Clinic',
-							'Uniform Bar Exam Writing Clinic',
-							'Essay Writing Crash Course',
-							'Bar Prep Academy',
-							'MBE 101',
-							'MBE 101 Plus',
-							'JumpStart'
-						]}
-					/>
-					<Input
-						name='fldtVzOLU0KSghmXB'
-						placeholder=''
-						id='fldtVzOLU0KSghmXB'
-						type='text'
-						label='21. Are you currently a licensed attorney in any state? If so, which state(s)?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldtVzOLU0KSghmXB}
-					/>
-					<Input
-						name='fldv4ACVh4FwvmDjb'
-						placeholder=''
-						id='fldv4ACVh4FwvmDjb'
-						type='text'
-						label='23. Will you be working while studying for the bar exam? If yes, please list your regular working hours.'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldv4ACVh4FwvmDjb}
-					/>
-					<SingleSelect
-						id='fldpVdxYmvK2n0VSI'
-						name='fldpVdxYmvK2n0VSI'
-						label='24. If you will be working while studying for the bar exam, are you able to take the last two full weeks before the bar exam off from work?'
-						options={['yes', 'no', 'maybe']}
-					/>
-					<Input
-						name='fldJ77eZV0TLfPIbF'
-						placeholder='morning, afternoon or evening'
-						id='fldJ77eZV0TLfPIbF'
-						type='text'
-						label='25. How many hours can you commit per week to studying for the bar exam?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldJ77eZV0TLfPIbF}
-					/>
-					<Input
-						name='flddDj1OxXaYhRQUh'
-						placeholder='morning, afternoon or evening'
-						id='flddDj1OxXaYhRQUh'
-						type='text'
-						label='26. What time of day do you best study (i.e., morning, afternoon or evening)?'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.flddDj1OxXaYhRQUh}
-					/>
-					<Input
-						name='fldAujUZg5GIjjqyI'
-						placeholder='morning, afternoon or evening'
-						id='fldAujUZg5GIjjqyI'
-						type='text'
-						label='28. Are you planning to take the MPRE while preparing for the bar exam? If yes, please provide the date of the MPRE exam you plan to take.'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldAujUZg5GIjjqyI}
-					/>
-					<TextArea
-						id='fld9Rn5z86f80SboE'
-						name='fld9Rn5z86f80SboE'
-						label='29. Have you been granted testing accommodations for the bar exam? If so, please state the testing accommodations you have received.'
-						placeholder=''
-					/>
-					<Input
-						name='fldvamj9FEmc8KJjx'
-						placeholder='morning, afternoon or evening'
-						id='fldvamj9FEmc8KJjx'
-						type='text'
-						label='30. Have you been granted (or did you receive) testing accommodations for law school exams? If so, please state the testing accommodations you have been granted or received.'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldvamj9FEmc8KJjx}
-					/>
-					<Input
-						name='fldniAel6KEEGzhSS'
-						placeholder=''
-						id='fldniAel6KEEGzhSS'
-						type='number'
-						label='31. If applicable, please state the specific number of times you have taken the bar exam unsuccessfully.'
-						error={action.value?.failed}
-						errorMsg={action.value?.fieldErrors?.fldniAel6KEEGzhSS}
-					/>
-					<TextArea
-						id='fldoLemgII1SEt7am'
-						name='fldoLemgII1SEt7am'
-						label='32. If applicable, why do you believe you were unsuccessful when taking the bar exam in the past?'
-						placeholder=''
-					/>
-					<TextArea
-						id='fld7Un3wB2HQAjw4k'
-						name='fld7Un3wB2HQAjw4k'
-						label='33. Why do you want to work with Agape Christian Bar Prep?'
-						placeholder=''
-					/>
-					<label
-						for='fldN3exD7NwCBe027'
-						class={[
-							'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
-						]}
-					>
-						<span>
-							34. If you have taken the bar exam before, please upload copies of
-							ALL past score reports.
-						</span>
-						<input
-							type='file'
-							multiple
-							name='fldN3exD7NwCBe027'
-							id='fldN3exD7NwCBe027'
+						<Input
+							name='fldRAg0746GAu8PVC'
+							placeholder=''
+							id='fldRAg0746GAu8PVC'
+							type='text'
+							label='17. What college did you attend for undergraduate and, if applicable, graduate school?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldRAg0746GAu8PVC}
 						/>
-						{action.value?.failed && (
-							<p>{action.value?.fieldErrors?.fldN3exD7NwCBe027}</p>
-						)}
-					</label>
-					{action.value?.failed && <p>{}</p>}
-					<button type='submit'>Submit</button>
+						<Input
+							name='fld9TArJ7BN7lZFYk'
+							placeholder=''
+							id='fld9TArJ7BN7lZFYk'
+							type='text'
+							label='18. What was your major in college and, if applicable, graduate school?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fld9TArJ7BN7lZFYk}
+						/>
+						<Input
+							name='fldlLFKIGiw8La2xZ'
+							placeholder=''
+							id='fldlLFKIGiw8La2xZ'
+							type='text'
+							label='19. What was your undergraduate cumulative GPA and, if applicable, graduate school?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldlLFKIGiw8La2xZ}
+						/>
+						<SingleSelect
+							id='fldSStHTLPOU0iAue'
+							name='fldSStHTLPOU0iAue'
+							label='20. Which tutoring program or writing course interest you?'
+							multiple={true}
+							options={[
+								'Bar Prep 101',
+								'Bar Prep 101 Plus',
+								'Essay Writing Boot Camp',
+								'MPT Writing Clinic',
+								'Uniform Bar Exam Writing Clinic',
+								'Essay Writing Crash Course',
+								'Bar Prep Academy',
+								'MBE 101',
+								'MBE 101 Plus',
+								'JumpStart'
+							]}
+						/>
+						<Input
+							name='fldtVzOLU0KSghmXB'
+							placeholder=''
+							id='fldtVzOLU0KSghmXB'
+							type='text'
+							label='21. Are you currently a licensed attorney in any state? If so, which state(s)?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldtVzOLU0KSghmXB}
+						/>
+						<Input
+							name='fldv4ACVh4FwvmDjb'
+							placeholder=''
+							id='fldv4ACVh4FwvmDjb'
+							type='text'
+							label='23. Will you be working while studying for the bar exam? If yes, please list your regular working hours.'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldv4ACVh4FwvmDjb}
+						/>
+						<SingleSelect
+							id='fldpVdxYmvK2n0VSI'
+							name='fldpVdxYmvK2n0VSI'
+							label='24. If you will be working while studying for the bar exam, are you able to take the last two full weeks before the bar exam off from work?'
+							options={['yes', 'no', 'maybe']}
+						/>
+						<Input
+							name='fldJ77eZV0TLfPIbF'
+							placeholder='morning, afternoon or evening'
+							id='fldJ77eZV0TLfPIbF'
+							type='text'
+							label='25. How many hours can you commit per week to studying for the bar exam?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldJ77eZV0TLfPIbF}
+						/>
+						<Input
+							name='flddDj1OxXaYhRQUh'
+							placeholder='morning, afternoon or evening'
+							id='flddDj1OxXaYhRQUh'
+							type='text'
+							label='26. What time of day do you best study (i.e., morning, afternoon or evening)?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.flddDj1OxXaYhRQUh}
+						/>
+						<Input
+							name='fldAujUZg5GIjjqyI'
+							placeholder='morning, afternoon or evening'
+							id='fldAujUZg5GIjjqyI'
+							type='text'
+							label='28. Are you planning to take the MPRE while preparing for the bar exam? If yes, please provide the date of the MPRE exam you plan to take.'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldAujUZg5GIjjqyI}
+						/>
+						<TextArea
+							id='fld9Rn5z86f80SboE'
+							name='fld9Rn5z86f80SboE'
+							label='29. Have you been granted testing accommodations for the bar exam? If so, please state the testing accommodations you have received.'
+							placeholder=''
+						/>
+						<Input
+							name='fldvamj9FEmc8KJjx'
+							placeholder='morning, afternoon or evening'
+							id='fldvamj9FEmc8KJjx'
+							type='text'
+							label='30. Have you been granted (or did you receive) testing accommodations for law school exams? If so, please state the testing accommodations you have been granted or received.'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldvamj9FEmc8KJjx}
+						/>
+						<Input
+							name='fldniAel6KEEGzhSS'
+							placeholder=''
+							id='fldniAel6KEEGzhSS'
+							type='number'
+							label='31. If applicable, please state the specific number of times you have taken the bar exam unsuccessfully.'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldniAel6KEEGzhSS}
+						/>
+						<TextArea
+							id='fldoLemgII1SEt7am'
+							name='fldoLemgII1SEt7am'
+							label='32. If applicable, why do you believe you were unsuccessful when taking the bar exam in the past?'
+							placeholder=''
+						/>
+						<TextArea
+							id='fld7Un3wB2HQAjw4k'
+							name='fld7Un3wB2HQAjw4k'
+							label='33. Why do you want to work with Agape Christian Bar Prep?'
+							placeholder=''
+						/>
+						<label
+							for='fldN3exD7NwCBe027'
+							class={[
+								'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+							]}
+						>
+							<span>
+								34. If you have taken the bar exam before, please upload copies
+								of ALL past score reports.
+							</span>
+							<input
+								type='file'
+								multiple
+								name='fldN3exD7NwCBe027'
+								id='fldN3exD7NwCBe027'
+							/>
+							{action.value?.failed && (
+								<p>{action.value?.fieldErrors?.fldN3exD7NwCBe027}</p>
+							)}
+						</label>
+						{action.value?.failed && <p>{}</p>}
+						<button type='submit'>Submit</button>
+					</div>
 				</div>
-			</div>
-		</Form>
+			</Form>
+		</>
 	)
 })

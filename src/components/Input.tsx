@@ -15,7 +15,7 @@ type InputProps = {
 export const Input = component$<InputProps>(
 	({ name, label, placeholder, type, required, id, error, errorMsg }) => {
 		return (
-			<>
+			<div class='col-span-2 sm:col-span-1'>
 				<div>
 					<label
 						for={name}
@@ -38,7 +38,7 @@ export const Input = component$<InputProps>(
 					/>
 				</div>
 				{error && <p class='text-red-700 '>{errorMsg}</p>}
-			</>
+			</div>
 		)
 	}
 )

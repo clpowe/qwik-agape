@@ -13,7 +13,7 @@ type InputProps = {
 export const TextArea = component$<InputProps>(
 	({ name, label, placeholder, required, id }) => {
 		return (
-			<div>
+			<div class='col-span-2'>
 				<label
 					for={name}
 					class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'

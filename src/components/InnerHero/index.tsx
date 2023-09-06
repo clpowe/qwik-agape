@@ -3,7 +3,7 @@ import Navigation from '../Navigation'
 
 interface InnerHeroProps {
 	headline: string
-	subtitle: string
+	subtitle?: string
 	image?: string
 }
 
