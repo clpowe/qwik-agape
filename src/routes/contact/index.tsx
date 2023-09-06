@@ -92,10 +92,10 @@ const createAirtableRecords = server$(async (data: any): Promise<any> => {
 						fldRAg0746GAu8PVC: data.fldRAg0746GAu8PVC,
 						fld9TArJ7BN7lZFYk: data.fld9TArJ7BN7lZFYk,
 						fldlLFKIGiw8La2xZ: data.fldlLFKIGiw8La2xZ,
-						fldSStHTLPOU0iAue: [...multi],
+
 						fldtVzOLU0KSghmXB: data.fldtVzOLU0KSghmXB,
 						fldpVdxYmvK2n0VSI: data.fldpVdxYmvK2n0VSI,
-						fldwtQtKsdcrDpayg: transcript,
+
 						fldv4ACVh4FwvmDjb: data.fldv4ACVh4FwvmDjb,
 						fldJ77eZV0TLfPIbF: data.fldJ77eZV0TLfPIbF,
 						flddDj1OxXaYhRQUh: data.flddDj1OxXaYhRQUh,
@@ -104,8 +104,7 @@ const createAirtableRecords = server$(async (data: any): Promise<any> => {
 						fldvamj9FEmc8KJjx: data.fldvamj9FEmc8KJjx,
 						fldniAel6KEEGzhSS: Number(data.fldniAel6KEEGzhSS),
 						fldoLemgII1SEt7am: data.fldoLemgII1SEt7am,
-						fld7Un3wB2HQAjw4k: data.fld7Un3wB2HQAjw4k,
-						fldN3exD7NwCBe027: exam
+						fld7Un3wB2HQAjw4k: data.fld7Un3wB2HQAjw4k
 					}
 				}
 			],

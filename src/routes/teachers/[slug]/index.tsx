@@ -2,7 +2,7 @@ import { Resource, component$, $ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import { getAllContent } from '@builder.io/sdk-qwik'
 import { Image, type ImageTransformerProps, useImageProvider } from 'qwik-image'
-import styles from './teachers.module.css'
+
 import InnerHero from '~/components/InnerHero'
 
 export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
