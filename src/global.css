@@ -45,3 +45,7 @@ html {
 .mt-section {
 	margin-top: max(calc(8vw + 5px), 6rem);
 }
+
+.customGrid {
+	grid-template-columns: repeat(auto-fill, minmax(2000px, 1fr));
+}
