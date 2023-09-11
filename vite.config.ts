@@ -5,7 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import presetWind from "@unocss/preset-wind";
 import UnoCSS from "unocss/vite";
 import { presetIcons } from "unocss";
-import { qwikReact } from "@builder.io/qwik-react/vite";
+
 
 export default defineConfig(() => {
   return {
@@ -14,7 +14,7 @@ export default defineConfig(() => {
       qwikVite(),
       tsconfigPaths(),
       UnoCSS({ presets: [presetWind(), presetIcons()] }),
-      qwikReact(),
+ 
     ],
     preview: {
       headers: {
