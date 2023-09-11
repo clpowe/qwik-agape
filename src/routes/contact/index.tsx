@@ -131,7 +131,7 @@ export default component$(() => {
 			<InnerHero headline='Contact Agape' />
 			<div class='isolate bg-white px-6 py-24 sm:py-32 lg:px-8 max-w-[100ch] mx-auto'>
 				<Form action={action}>
-					<div class='grid'>
+					<div class='grid gap-4'>
 						<Input
 							name='fldimJcyXXIeXfzyX'
 							id='fldimJcyXXIeXfzyX'
