@@ -15,6 +15,7 @@ import TeacherSection from './TeacherSection'
 import ClickableItem from './ClickableItem'
 import ContentTitle from './ContentTitle'
 import NumberedList from './NumberedList'
+import HomeMenu from './HomeMenu'
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 	{
@@ -32,6 +33,10 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 				defaultValue: 'Subheading'
 			}
 		]
+	},
+	{
+		component: HomeMenu,
+		name: 'HomeMenu'
 	},
 	{
 		component: ContentSectionOne,
