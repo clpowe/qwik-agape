@@ -64,13 +64,43 @@ export default component$(() => {
 										class='object-bottom rounded-6 '
 										src={teacher.results[0].data.bimage}
 									/>
-									<div>
-										<h1 class='text-7xl font-bold'>
+									<div class='w-full self-end '>
+										<h1 class='teacher-text font-bold'>
 											{teacher.results[0].data.name}
 										</h1>
-										<p class='text-2xl font-bold'>
+										<p class='text-4xl font-bold text-red-800'>
 											{teacher.results[0].data.title}
 										</p>
+										<div class='grid gap-6 customGrid w-full mt-6 '>
+											<div>
+												<h3 class='text-xl font-bold '>Bar Admission</h3>
+												<ul>
+													{teacher.results[0].data.education.map((e: any) => {
+														return <li key={e.school}>{e.school}</li>
+													})}
+												</ul>
+											</div>
+											<div>
+												<h3 class='text-xl font-bold '>Expertise</h3>
+												<ul>
+													{teacher.results[0].data.expertiselist.map(
+														(e: any) => {
+															return <li key={e.expertise}>{e.expertise}</li>
+														}
+													)}
+												</ul>
+											</div>
+											<div>
+												<h3 class='text-xl font-bold '>Education</h3>
+												<ul>
+													{teacher.results[0].data.barAdmissions.map(
+														(e: any) => {
+															return <li key={e.admission}>{e.admission}</li>
+														}
+													)}
+												</ul>
+											</div>
+										</div>
 									</div>
 								</div>
 								<section>
@@ -80,32 +110,6 @@ export default component$(() => {
 										dangerouslySetInnerHTML={teacher.results[0].data.bio}
 									></div>
 								</section>
-								<div class='grid gap-4 customGrid'>
-									<div>
-										<h3 class='text-xl font-bold '>Bar Admission</h3>
-										<ul>
-											{teacher.results[0].data.education.map((e: any) => {
-												return <li key={e.school}>{e.school}</li>
-											})}
-										</ul>
-									</div>
-									<div>
-										<h3 class='text-xl font-bold '>Expertise</h3>
-										<ul>
-											{teacher.results[0].data.expertiselist.map((e: any) => {
-												return <li key={e.expertise}>{e.expertise}</li>
-											})}
-										</ul>
-									</div>
-									<div>
-										<h3 class='text-xl font-bold '>Education</h3>
-										<ul>
-											{teacher.results[0].data.barAdmissions.map((e: any) => {
-												return <li key={e.admission}>{e.admission}</li>
-											})}
-										</ul>
-									</div>
-								</div>
 							</main>
 						</>
 					)

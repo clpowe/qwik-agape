@@ -47,5 +47,10 @@ html {
 }
 
 .customGrid {
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(5em, 10em));
+}
+
+.teacher-text {
+	font-size: clamp(3.5rem, 10vw, 7rem);
+	line-height: 1em;
 }
