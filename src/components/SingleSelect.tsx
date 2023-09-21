@@ -7,10 +7,12 @@ type InputProps = {
 	id: string
 	value?: string | undefined
 	multiple?: boolean
+	error: boolean | undefined
+	errorMsg?: string[]
 }
 
 export const SingleSelect = component$<InputProps>(
-	({ name, label, id, options, multiple }) => {
+	({ name, label, id, options, multiple, error, errorMsg }) => {
 		return (
 			<div>
 				<label
@@ -31,6 +33,7 @@ export const SingleSelect = component$<InputProps>(
 						</option>
 					))}
 				</select>
+				{error && <p class='text-red-700 '>{errorMsg}</p>}
 			</div>
 		)
 	}

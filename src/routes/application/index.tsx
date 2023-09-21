@@ -7,17 +7,11 @@ import Airtable from 'airtable'
 import { createClient } from '@supabase/supabase-js'
 import InnerHero from '~/components/InnerHero'
 
-const supabase = createClient(
-	'https://nfsivlvxfmhroorykvak.supabase.co',
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5mc2l2bHZ4Zm1ocm9vcnlrdmFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIyNDE2OTEsImV4cCI6MjAwNzgxNzY5MX0.gZvp2zjL59KQcDjPCwPpmJtJ2zJz55r91H8dF9g-J4M'
-)
+export const upload = server$(async function (files: any) {
+	console.log(this)
+	const key: string = process.env.SUPABASE_KEY ?? ''
+	const supabase = createClient('https://nfsivlvxfmhroorykvak.supabase.co', key)
 
-const base = new Airtable({
-	apiKey:
-		'patZ1YogJ4orw2mS9.9ba71b814341bb9fc1939b207bedd33e36485a018c20b49352f6a79f88476f3c'
-}).base('appRaAlKfaCArFizD')
-
-const upload = server$(async (files: any) => {
 	const uuid = crypto.randomUUID()
 	try {
 		const uploadPromises = files.map(async (file: any) => {
@@ -50,9 +44,10 @@ export const useApplication = routeAction$(
 	async (data, event) => {
 		try {
 			const formData = await event.request.formData()
-			const files = formData.getAll('fldwtQtKsdcrDpayg')
-			const multi = formData.getAll('fldSStHTLPOU0iAue')
-			const examFiles = formData.getAll('fldN3exD7NwCBe027')
+			const files = formData.getAll('fldSDIUUUVNWzTna5')
+			const multi = formData.getAll('fld6uCkntQuX0OPoV')
+
+			const examFiles = formData.getAll('fldTCYazP1i6TpN54')
 
 			const transcript: any[] = await upload(files)
 			const exam: any[] = await upload(examFiles)
@@ -71,9 +66,9 @@ export const useApplication = routeAction$(
 		}
 	},
 	zod$({
-		fldimJcyXXIeXfzyX: z.string().nonempty('You must provide your full name'),
-		fldVYudWzqKR5odLo: z.string(),
-		fldrtWiz5sX3eckqr: z
+		fldmUMmM19iZP1Grl: z.string().nonempty('You must provide your full name'),
+		fldOQfftgNjsXkh8C: z.string(),
+		fld9abj3oizoYB7rO: z
 			.string()
 			.email('Invalid email address')
 			.nonempty('You must provide a valid emal'),
@@ -81,99 +76,115 @@ export const useApplication = routeAction$(
 			const phoneNumberRegex = /^\d{10}$/
 			return phoneNumberRegex.test(value)
 		}, 'Invalid phone number'),
-		fldBa0zLdwOtgXaAb: z.enum(['Email', 'Phone', 'Text']),
-		fldpV190z6nThgrQx: z.enum(['Married', 'Single', 'Other']),
-		fld16nTUwI0ltg2Im: z.string(),
-		fldVOWwstEB17l7Ru: z.string(),
-		fldDxpFGkotOrE9jW: z.enum(['XS', 'S', 'M', 'L', 'XL', '2X', '3X', '4X']),
-		fldEA9ECo9vHykhVZ: z.string(),
-		fldmG8b69avNhjnPW: z.string(),
-		fldXrwRXkUX3y9pHR: z.string(),
-		fldIT9AUQfexLNpyU: z.string(),
-		fldOyCIoZJJdVDgbh: z.string(),
-		fldoOhpWPW0gs2yMX: z.string(),
-		fldRAg0746GAu8PVC: z.string(),
-		fld9TArJ7BN7lZFYk: z.string(),
-		fldlLFKIGiw8La2xZ: z.string(),
-		fldSStHTLPOU0iAue: z.any(),
-		fldtVzOLU0KSghmXB: z.string(),
-		fldwtQtKsdcrDpayg: z.any(),
-		fldpVdxYmvK2n0VSI: z.enum(['yes', 'no', 'maybe']),
-		fldv4ACVh4FwvmDjb: z.string(),
-		fldJ77eZV0TLfPIbF: z.string(),
-		flddDj1OxXaYhRQUh: z.string(),
-		fldAujUZg5GIjjqyI: z.string(),
-		fld9Rn5z86f80SboE: z.string(),
-		fldvamj9FEmc8KJjx: z.string(),
-		fldniAel6KEEGzhSS: z.string(),
-		fldoLemgII1SEt7am: z.string(),
-		fld7Un3wB2HQAjw4k: z.string(),
-		fldN3exD7NwCBe027: z.any()
+		fld5ZX8iAVQIJMj9b: z.enum(['Email', 'Phone', 'Text']),
+		fldGVrfDJEtejqOVD: z.enum(['Married', 'Single']),
+		fldhVTcDckSIJG5ug: z.string(),
+		fld9VbSKIRidEJQtz: z.string(),
+		fldAJIJwnPZLWlSl3: z.enum(['XS', 'S', 'M', 'L', 'XL', '2X', '3X', '4X']),
+		fldAvNG7K7AiWXoue: z.string(),
+		fldEPmkZx3EhCQHi4: z.string(),
+		fld4Y9JvzWEJ0JgpZ: z.string(),
+		fldkjGgnBk3V8aEJc: z.string(),
+		fldSDIUUUVNWzTna5: z.any(),
+		fldQ5zNuZS8Ykq06F: z.string(),
+		fldVaYJs7V4blF6Fd: z.string(),
+		fldRvz9cFeSPlz6Nu: z.string(),
+		fldJ8NOtmEPLfwxGp: z.string(),
+		fld6uCkntQuX0OPoV: z.any(),
+		fldkMTWKErNuBU6T8: z.string(),
+		fldm8afesvLYLneJa: z.string(),
+		fldAfq9tmJSkQoWY9: z.string(),
+		fldUU0VpDYTbzWtsd: z.any(),
+		fldDnKFFvAZvbVUVN: z.string(),
+		fldTCYazP1i6TpN54: z.any(),
+		flddOp9eQeMLTBw9A: z.string(),
+		fldnhtaVTa1Pxjbw7: z.string(),
+		fldJwU5Gp6Y05nISw: z.string(),
+		fldmI1JEq3tF59v5o: z.string(),
+		fldJAAoxLmmQUUKXb: z.string(),
+		fld14n4doLdMujJr4: z.string(),
+		fldcEvDnx7yDXGtaH: z.string(),
+		fldwOFwQjp9mmzeCA: z.string(),
+		fldwJNJx8XuL9CH3o: z.string(),
+		fld2LbhLsphcZ1NM3: z.enum([
+			'Tuesday, September 26, 2023 @ 7 p.m. EST',
+			'Thursday, September 28, 2023 @ 7 p.m. EST',
+			'Monday, October 2, 2023 @ 7 p.m. EST',
+			'Wednesday, October 4, 2023 @ 7 p.m. EST',
+			'Saturday, October 7, 2023 @ 10 a.m. EST'
+		])
 	})
 )
 
-const createAirtableRecords = server$(
-	async (
-		data: any,
-		multi: any,
-		transcript: any[],
-		exam: any[]
-	): Promise<any> => {
-		return new Promise((resolve, reject) => {
-			base('Test').create(
-				[
-					{
-						fields: {
-							Name: data.fldimJcyXXIeXfzyX,
-							fldVYudWzqKR5odLo: data.fldVYudWzqKR5odLo,
-							fldrtWiz5sX3eckqr: data.fldrtWiz5sX3eckqr,
-							fldxaoND1oHtMUvAn: data.fldxaoND1oHtMUvAn,
-							fldBa0zLdwOtgXaAb: data.fldBa0zLdwOtgXaAb,
-							fldpV190z6nThgrQx: data.fldpV190z6nThgrQx,
-							fld16nTUwI0ltg2Im: data.fld16nTUwI0ltg2Im,
-							fldVOWwstEB17l7Ru: data.fld16nTUwI0ltg2Im,
-							fldDxpFGkotOrE9jW: data.fldDxpFGkotOrE9jW,
-							fldEA9ECo9vHykhVZ: data.fldEA9ECo9vHykhVZ,
-							fldmG8b69avNhjnPW: data.fldmG8b69avNhjnPW,
-							fldXrwRXkUX3y9pHR: data.fldXrwRXkUX3y9pHR,
-							fldIT9AUQfexLNpyU: data.fldIT9AUQfexLNpyU,
-							fldOyCIoZJJdVDgbh: data.fldOyCIoZJJdVDgbh,
-							fldoOhpWPW0gs2yMX: Number(data.fldoOhpWPW0gs2yMX),
-							fldRAg0746GAu8PVC: data.fldRAg0746GAu8PVC,
-							fld9TArJ7BN7lZFYk: data.fld9TArJ7BN7lZFYk,
-							fldlLFKIGiw8La2xZ: data.fldlLFKIGiw8La2xZ,
-							fldSStHTLPOU0iAue: [...multi],
-							fldtVzOLU0KSghmXB: data.fldtVzOLU0KSghmXB,
-							fldpVdxYmvK2n0VSI: data.fldpVdxYmvK2n0VSI,
-							fldwtQtKsdcrDpayg: transcript,
-							fldv4ACVh4FwvmDjb: data.fldv4ACVh4FwvmDjb,
-							fldJ77eZV0TLfPIbF: data.fldJ77eZV0TLfPIbF,
-							flddDj1OxXaYhRQUh: data.flddDj1OxXaYhRQUh,
-							fldAujUZg5GIjjqyI: data.fldAujUZg5GIjjqyI,
-							fld9Rn5z86f80SboE: data.fld9Rn5z86f80SboE,
-							fldvamj9FEmc8KJjx: data.fldvamj9FEmc8KJjx,
-							fldniAel6KEEGzhSS: Number(data.fldniAel6KEEGzhSS),
-							fldoLemgII1SEt7am: data.fldoLemgII1SEt7am,
-							fld7Un3wB2HQAjw4k: data.fld7Un3wB2HQAjw4k,
-							fldN3exD7NwCBe027: exam
-						}
+export const createAirtableRecords = server$(async function (
+	data: any,
+	multi: any,
+
+	transcript: any[],
+	exam: any[]
+): Promise<any> {
+	const key: string = process.env.AIRTABLE_KEY ?? ''
+
+	const base = new Airtable({
+		apiKey: key
+	}).base('app4lid64f6dCji7W')
+	return new Promise((resolve, reject) => {
+		base('Table 1').create(
+			[
+				{
+					fields: {
+						fldmUMmM19iZP1Grl: data.fldmUMmM19iZP1Grl,
+						fldOQfftgNjsXkh8C: data.fldOQfftgNjsXkh8C,
+						fld9abj3oizoYB7rO: data.fld9abj3oizoYB7rO,
+						fldTu91RST993Gdrw: data.fldTu91RST993Gdrw,
+						fld5ZX8iAVQIJMj9b: data.fld5ZX8iAVQIJMj9b,
+						fldGVrfDJEtejqOVD: data.fldGVrfDJEtejqOVD,
+						fldhVTcDckSIJG5ug: data.fldhVTcDckSIJG5ug,
+						fld9VbSKIRidEJQtz: data.fld9VbSKIRidEJQtz,
+						fldAJIJwnPZLWlSl3: data.fldAJIJwnPZLWlSl3,
+						fldAvNG7K7AiWXoue: data.fldAvNG7K7AiWXoue,
+						fldEPmkZx3EhCQHi4: data.fldEPmkZx3EhCQHi4,
+						fld4Y9JvzWEJ0JgpZ: data.fld4Y9JvzWEJ0JgpZ,
+						fldkjGgnBk3V8aEJc: data.fldkjGgnBk3V8aEJc,
+						fldSDIUUUVNWzTna5: transcript,
+						fldQ5zNuZS8Ykq06F: Number(data.fldQ5zNuZS8Ykq06F),
+						fldVaYJs7V4blF6Fd: data.fldVaYJs7V4blF6Fd,
+						fldRvz9cFeSPlz6Nu: data.fldRvz9cFeSPlz6Nu,
+						fldJ8NOtmEPLfwxGp: data.fldJ8NOtmEPLfwxGp,
+						fld6uCkntQuX0OPoV: [...multi],
+						fldkMTWKErNuBU6T8: data.fldkMTWKErNuBU6T8,
+						fldm8afesvLYLneJa: data.fldm8afesvLYLneJa,
+						fldAfq9tmJSkQoWY9: data.fldAfq9tmJSkQoWY9,
+						fldUU0VpDYTbzWtsd: Number(data.fldUU0VpDYTbzWtsd),
+						fldDnKFFvAZvbVUVN: data.fldDnKFFvAZvbVUVN,
+						fldTCYazP1i6TpN54: exam,
+						flddOp9eQeMLTBw9A: data.flddOp9eQeMLTBw9A,
+						fldnhtaVTa1Pxjbw7: data.fldnhtaVTa1Pxjbw7,
+						fldJwU5Gp6Y05nISw: data.fldJwU5Gp6Y05nISw,
+						fldmI1JEq3tF59v5o: data.fldmI1JEq3tF59v5o,
+						fldJAAoxLmmQUUKXb: data.fldJAAoxLmmQUUKXb,
+						fld14n4doLdMujJr4: data.fld14n4doLdMujJr4,
+						fldcEvDnx7yDXGtaH: data.fldcEvDnx7yDXGtaH,
+						fldwOFwQjp9mmzeCA: data.fldwOFwQjp9mmzeCA,
+						fldwJNJx8XuL9CH3o: data.fldwJNJx8XuL9CH3o,
+						fld2LbhLsphcZ1NM3: data.fld2LbhLsphcZ1NM3
 					}
-				],
-				function (err: any, records: any) {
-					if (err) {
-						console.error(err)
-						reject(err)
-						return
-					}
-					records.forEach(function (record: any) {
-						console.log(record.getId())
-					})
-					resolve(records)
 				}
-			)
-		})
-	}
-)
+			],
+			function (err: any, records: any) {
+				if (err) {
+					console.error(err)
+					reject(err)
+					return
+				}
+				records.forEach(function (record: any) {
+					return record
+				})
+				resolve(records)
+			}
+		)
+	})
+})
 
 export default component$(() => {
 	const action = useApplication()
@@ -185,117 +196,131 @@ export default component$(() => {
 				<div class='space-y-12 max-w-[60ch] mx-auto'>
 					<div class='border-b border-gray-900/10 pb-12'>
 						<Input
-							name='fldimJcyXXIeXfzyX'
-							id='fldimJcyXXIeXfzyX'
+							name='fldmUMmM19iZP1Grl'
+							id='fldmUMmM19iZP1Grl'
 							placeholder='Full Name'
 							type='text'
 							label='Name'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldimJcyXXIeXfzyX}
+							errorMsg={action.value?.fieldErrors?.fldmUMmM19iZP1Grl}
 						/>
 						<Input
-							name='fldVYudWzqKR5odLo'
+							name='fldOQfftgNjsXkh8C'
 							placeholder='mailing address'
-							id='fldVYudWzqKR5odLo'
+							id='fldOQfftgNjsXkh8C'
 							type='text'
-							label='2. What is your mailing address?'
+							label='What is your mailing address?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldVYudWzqKR5odLo}
+							errorMsg={action.value?.fieldErrors?.fldOQfftgNjsXkh8C}
 						/>
 						<Input
-							name='fldrtWiz5sX3eckqr'
+							name='fld9abj3oizoYB7rO'
 							placeholder='email@address.com'
-							id='fldrtWiz5sX3eckqr'
+							id='fld9abj3oizoYB7rO'
 							type='email'
-							label='3. What is your preferred email address?'
+							label='What is your preferred email address?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldrtWiz5sX3eckqr}
+							errorMsg={action.value?.fieldErrors?.fld9abj3oizoYB7rO}
 						/>
 						<Input
 							name='fldxaoND1oHtMUvAn'
 							placeholder='(111) 123-4567'
 							id='fldxaoND1oHtMUvAn'
 							type='tel'
-							label='4. What is your cell phone number?'
+							label='What is your cell phone number?'
 							error={action.value?.failed}
 							errorMsg={action.value?.fieldErrors?.fldxaoND1oHtMUvAn}
 						/>
+
 						<SingleSelect
-							id='fldBa0zLdwOtgXaAb'
+							id='fld5ZX8iAVQIJMj9b'
 							value='Text'
-							name='fldBa0zLdwOtgXaAb'
-							label='5. What is your preferred method of communication?'
+							name='fld5ZX8iAVQIJMj9b'
+							label='What is your preferred method of communication?'
 							options={['Email', 'Phone', 'Text']}
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fld5ZX8iAVQIJMj9b}
 						/>
+
 						<SingleSelect
-							id='fldpV190z6nThgrQx'
+							id='fldGVrfDJEtejqOVD'
 							value='Other'
-							name='fldpV190z6nThgrQx'
+							name='fldGVrfDJEtejqOVD'
 							label='6. What is your marital status?'
-							options={['Married', 'Single', 'Other']}
+							options={['Married', 'Single']}
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldGVrfDJEtejqOVD}
 						/>
+
 						<TextArea
-							id='fld16nTUwI0ltg2Im'
-							name='fld16nTUwI0ltg2Im'
-							label='7. How many children do you have and what are their ages?'
+							id='fldhVTcDckSIJG5ug'
+							name='fldhVTcDckSIJG5ug'
+							label='How many children do you have and what are their ages?'
 							placeholder=''
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldhVTcDckSIJG5ug}
 						/>
+
 						<TextArea
-							id='fldVOWwstEB17l7Ru'
-							name='fldVOWwstEB17l7Ru'
-							label='8. Do you have any other obligations that could potentially take away from your study time, such as caring for a sick family member, planned trips, etc.? If so, please explain.'
+							id='fld9VbSKIRidEJQtz'
+							name='fld9VbSKIRidEJQtz'
+							label='Do you have any other obligations that could potentially take away from your study time, such as caring for a sick family member, planned trips, etc.? If so, please explain.'
 							placeholder=''
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fld9VbSKIRidEJQtz}
 						/>
+
 						<SingleSelect
-							id='fldDxpFGkotOrE9jW'
+							id='fldAJIJwnPZLWlSl3'
 							value='Other'
-							name='fldDxpFGkotOrE9jW'
-							label='9. What is your t-shirt size?'
+							name='fldAJIJwnPZLWlSl3'
+							label='What is your t-shirt size?'
 							options={['XS', 'S', 'M', 'L', 'XL', '2X', '3X', '4X']}
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldAJIJwnPZLWlSl3}
 						/>
+
 						<TextArea
-							id='fldEA9ECo9vHykhVZ'
-							name='fldEA9ECo9vHykhVZ'
-							label='10. How did you hear about Agape Christian Bar Prep?'
+							id='fldAvNG7K7AiWXoue'
+							name='fldAvNG7K7AiWXoue'
+							label='How did you hear about Agape Christian Bar Prep?'
 							placeholder=''
-						/>
-						<TextArea
-							id='fldmG8b69avNhjnPW'
-							name='fldmG8b69avNhjnPW'
-							label='11. Who can we thank for referring you?'
-							placeholder=''
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldAvNG7K7AiWXoue}
 						/>
 
 						<Input
-							name='fldXrwRXkUX3y9pHR'
+							name='fldEPmkZx3EhCQHi4'
 							placeholder=''
-							id='fldXrwRXkUX3y9pHR'
+							id='fldEPmkZx3EhCQHi4'
 							type='text'
-							label='12. What law school did you attend or what law school are you attending?'
+							label='What law school did you attend or what law school are you attending?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldXrwRXkUX3y9pHR}
+							errorMsg={action.value?.fieldErrors?.fldEPmkZx3EhCQHi4}
 						/>
+
 						<Input
-							name='fldIT9AUQfexLNpyU'
+							name='fld4Y9JvzWEJ0JgpZ'
 							placeholder=''
-							id='fldIT9AUQfexLNpyU'
+							id='fld4Y9JvzWEJ0JgpZ'
 							type='text'
-							label='13. What year did you graduate law school or when will you graduate law school?'
+							label='What year did you graduate law school or when will you graduate law school?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldIT9AUQfexLNpyU}
+							errorMsg={action.value?.fieldErrors?.fld4Y9JvzWEJ0JgpZ}
 						/>
+
 						<Input
-							name='fldOyCIoZJJdVDgbh'
+							name='fldkjGgnBk3V8aEJc'
 							placeholder=''
-							id='fldOyCIoZJJdVDgbh'
+							id='fldkjGgnBk3V8aEJc'
 							type='text'
-							label='14. What is your law school cumulative GPA?'
+							label='What is your law school cumulative GPA?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldOyCIoZJJdVDgbh}
+							errorMsg={action.value?.fieldErrors?.fldkjGgnBk3V8aEJc}
 						/>
 
 						<label
-							for='fldwtQtKsdcrDpayg'
+							for='fldSDIUUUVNWzTna5'
 							class={[
 								'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
 							]}
@@ -306,176 +331,245 @@ export default component$(() => {
 							<input
 								type='file'
 								multiple
-								name='fldwtQtKsdcrDpayg'
-								id='fldwtQtKsdcrDpayg'
+								name='fldSDIUUUVNWzTna5'
+								id='fldSDIUUUVNWzTna5'
 							/>
 							{action.value?.failed && (
-								<p>{action.value?.fieldErrors?.fldwtQtKsdcrDpayg}</p>
+								<p>{action.value?.fieldErrors?.fldSDIUUUVNWzTna5}</p>
 							)}
 						</label>
 
 						<Input
-							name='fldoOhpWPW0gs2yMX'
+							name='fldQ5zNuZS8Ykq06F'
 							placeholder=''
-							id='fldoOhpWPW0gs2yMX'
+							id='fldQ5zNuZS8Ykq06F'
 							type='number'
-							label='16. What was your LSAT score?'
+							label='What was your LSAT score?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldoOhpWPW0gs2yMX}
+							errorMsg={action.value?.fieldErrors?.fldQ5zNuZS8Ykq06F}
 						/>
 
 						<Input
-							name='fldRAg0746GAu8PVC'
+							name='fldVaYJs7V4blF6Fd'
 							placeholder=''
-							id='fldRAg0746GAu8PVC'
+							id='fldVaYJs7V4blF6Fd'
 							type='text'
-							label='17. What college did you attend for undergraduate and, if applicable, graduate school?'
+							label='What college did you attend for undergraduate and, if applicable, graduate school?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldRAg0746GAu8PVC}
+							errorMsg={action.value?.fieldErrors?.fldVaYJs7V4blF6Fd}
 						/>
+
 						<Input
-							name='fld9TArJ7BN7lZFYk'
+							name='fldRvz9cFeSPlz6Nu'
 							placeholder=''
-							id='fld9TArJ7BN7lZFYk'
+							id='fldRvz9cFeSPlz6Nu'
 							type='text'
-							label='18. What was your major in college and, if applicable, graduate school?'
+							label='What was your major in college and, if applicable, graduate school?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fld9TArJ7BN7lZFYk}
+							errorMsg={action.value?.fieldErrors?.fldRvz9cFeSPlz6Nu}
 						/>
+
 						<Input
-							name='fldlLFKIGiw8La2xZ'
+							name='fldJ8NOtmEPLfwxGp'
 							placeholder=''
-							id='fldlLFKIGiw8La2xZ'
+							id='fldJ8NOtmEPLfwxGp'
 							type='text'
-							label='19. What was your undergraduate cumulative GPA and, if applicable, graduate school?'
+							label='What was your undergraduate cumulative GPA and, if applicable, graduate school?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldlLFKIGiw8La2xZ}
+							errorMsg={action.value?.fieldErrors?.fldJ8NOtmEPLfwxGp}
 						/>
+
 						<SingleSelect
-							id='fldSStHTLPOU0iAue'
-							name='fldSStHTLPOU0iAue'
-							label='20. Which tutoring program or writing course interest you?'
+							id='fld6uCkntQuX0OPoV'
+							name='fld6uCkntQuX0OPoV'
+							label='Which course(s) interest you?'
 							multiple={true}
 							options={[
-								'Bar Prep 101',
-								'Bar Prep 101 Plus',
-								'Essay Writing Boot Camp',
-								'MPT Writing Clinic',
-								'Uniform Bar Exam Writing Clinic',
-								'Essay Writing Crash Course',
 								'Bar Prep Academy',
-								'MBE 101',
-								'MBE 101 Plus',
-								'JumpStart'
+								'Bar Prep 101 (First-time takers only)',
+								'Bar Prep 101 Plus (Repeat takers only)',
+								'Essay Boot Camp (First-time takers only)',
+								'Essay Boot Camp Plus (Repeat takers only)',
+								'MBE 101 (MBE Only Takers)',
+								'MBE Boot Camp',
+								'MPT Writing Clinic ',
+								'Small Group Tutoring',
+								'Small Group Tutoring Plus (Repeat takers only)'
 							]}
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fld6uCkntQuX0OPoV}
 						/>
+
 						<Input
-							name='fldtVzOLU0KSghmXB'
+							name='fldkMTWKErNuBU6T8'
 							placeholder=''
-							id='fldtVzOLU0KSghmXB'
+							id='fldkMTWKErNuBU6T8'
 							type='text'
-							label='21. Are you currently a licensed attorney in any state? If so, which state(s)?'
+							label='Is this your first time taking a bar exam?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldtVzOLU0KSghmXB}
+							errorMsg={action.value?.fieldErrors?.fldkMTWKErNuBU6T8}
 						/>
-						<Input
-							name='fldv4ACVh4FwvmDjb'
-							placeholder=''
-							id='fldv4ACVh4FwvmDjb'
-							type='text'
-							label='23. Will you be working while studying for the bar exam? If yes, please list your regular working hours.'
-							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldv4ACVh4FwvmDjb}
-						/>
-						<SingleSelect
-							id='fldpVdxYmvK2n0VSI'
-							name='fldpVdxYmvK2n0VSI'
-							label='24. If you will be working while studying for the bar exam, are you able to take the last two full weeks before the bar exam off from work?'
-							options={['yes', 'no', 'maybe']}
-						/>
-						<Input
-							name='fldJ77eZV0TLfPIbF'
-							placeholder='morning, afternoon or evening'
-							id='fldJ77eZV0TLfPIbF'
-							type='text'
-							label='25. How many hours can you commit per week to studying for the bar exam?'
-							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldJ77eZV0TLfPIbF}
-						/>
-						<Input
-							name='flddDj1OxXaYhRQUh'
-							placeholder='morning, afternoon or evening'
-							id='flddDj1OxXaYhRQUh'
-							type='text'
-							label='26. What time of day do you best study (i.e., morning, afternoon or evening)?'
-							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.flddDj1OxXaYhRQUh}
-						/>
-						<Input
-							name='fldAujUZg5GIjjqyI'
-							placeholder='morning, afternoon or evening'
-							id='fldAujUZg5GIjjqyI'
-							type='text'
-							label='28. Are you planning to take the MPRE while preparing for the bar exam? If yes, please provide the date of the MPRE exam you plan to take.'
-							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldAujUZg5GIjjqyI}
-						/>
+
 						<TextArea
-							id='fld9Rn5z86f80SboE'
-							name='fld9Rn5z86f80SboE'
-							label='29. Have you been granted testing accommodations for the bar exam? If so, please state the testing accommodations you have received.'
+							name='fldm8afesvLYLneJa'
 							placeholder=''
-						/>
-						<Input
-							name='fldvamj9FEmc8KJjx'
-							placeholder='morning, afternoon or evening'
-							id='fldvamj9FEmc8KJjx'
-							type='text'
-							label='30. Have you been granted (or did you receive) testing accommodations for law school exams? If so, please state the testing accommodations you have been granted or received.'
+							id='fldm8afesvLYLneJa'
+							label='If you have taken the bar exam before, in what states have you taken the exam?'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldvamj9FEmc8KJjx}
+							errorMsg={action.value?.fieldErrors?.fldm8afesvLYLneJa}
 						/>
+
 						<Input
-							name='fldniAel6KEEGzhSS'
+							name='fldAfq9tmJSkQoWY9'
 							placeholder=''
-							id='fldniAel6KEEGzhSS'
+							id='fldAfq9tmJSkQoWY9'
+							type='text'
+							label='Have you passed the bar exam in any state? If so, which state(s)?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldAfq9tmJSkQoWY9}
+						/>
+
+						<Input
+							name='fldUU0VpDYTbzWtsd'
+							placeholder=''
+							id='fldUU0VpDYTbzWtsd'
 							type='number'
-							label='31. If applicable, please state the specific number of times you have taken the bar exam unsuccessfully.'
+							label='If you have taken the bar exam before and did not pass, please state the specific number of times you have taken the bar exam unsuccessfully.'
 							error={action.value?.failed}
-							errorMsg={action.value?.fieldErrors?.fldniAel6KEEGzhSS}
+							errorMsg={action.value?.fieldErrors?.fldUU0VpDYTbzWtsd}
 						/>
+
 						<TextArea
-							id='fldoLemgII1SEt7am'
-							name='fldoLemgII1SEt7am'
-							label='32. If applicable, why do you believe you were unsuccessful when taking the bar exam in the past?'
+							name='fldDnKFFvAZvbVUVN'
 							placeholder=''
+							id='fldDnKFFvAZvbVUVN'
+							label='If you have taken the bar exam before and did not pass, why do you believe you were unsuccessful?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldDnKFFvAZvbVUVN}
 						/>
-						<TextArea
-							id='fld7Un3wB2HQAjw4k'
-							name='fld7Un3wB2HQAjw4k'
-							label='33. Why do you want to work with Agape Christian Bar Prep?'
-							placeholder=''
-						/>
+
 						<label
-							for='fldN3exD7NwCBe027'
+							for='fldTCYazP1i6TpN54'
 							class={[
 								'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
 							]}
 						>
 							<span>
-								34. If you have taken the bar exam before, please upload copies
-								of ALL past score reports.
+								If you have taken the bar exam before, please upload copies of
+								ALL past score reports.
 							</span>
 							<input
 								type='file'
 								multiple
-								name='fldN3exD7NwCBe027'
-								id='fldN3exD7NwCBe027'
+								name='fldTCYazP1i6TpN54'
+								id='fldTCYazP1i6TpN54'
 							/>
 							{action.value?.failed && (
-								<p>{action.value?.fieldErrors?.fldN3exD7NwCBe027}</p>
+								<p>{action.value?.fieldErrors?.fldTCYazP1i6TpN54}</p>
 							)}
 						</label>
+
+						<Input
+							name='flddOp9eQeMLTBw9A'
+							placeholder=''
+							id='flddOp9eQeMLTBw9A'
+							type='text'
+							label='Which bar exam do you plan on taking?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.flddOp9eQeMLTBw9A}
+						/>
+
+						<TextArea
+							name='fldnhtaVTa1Pxjbw7'
+							placeholder=''
+							id='fldnhtaVTa1Pxjbw7'
+							label='If you will be working while studying for the bar exam, (1) what are your regular working hours?; and (2) are you able to take the last two full weeks before the bar exam off from work?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldnhtaVTa1Pxjbw7}
+						/>
+
+						<Input
+							name='fldJwU5Gp6Y05nISw'
+							placeholder='morning, afternoon or evening'
+							id='fldJwU5Gp6Y05nISw'
+							type='text'
+							label='How many hours can you commit per week to studying for the bar exam?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldJwU5Gp6Y05nISw}
+						/>
+
+						<Input
+							name='fldmI1JEq3tF59v5o'
+							placeholder='morning, afternoon or evening'
+							id='fldmI1JEq3tF59v5o'
+							type='text'
+							label='What time of day do you best study (i.e., morning, afternoon or evening)?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldmI1JEq3tF59v5o}
+						/>
+
+						<Input
+							name='fldJAAoxLmmQUUKXb'
+							placeholder=''
+							id='fldJAAoxLmmQUUKXb'
+							type='text'
+							label='When would you like to start studying for the bar exam (i.e. November 1, December 1, etc.)?'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldJAAoxLmmQUUKXb}
+						/>
+
+						<Input
+							name='fld14n4doLdMujJr4'
+							placeholder=''
+							id='fld14n4doLdMujJr4'
+							type='text'
+							label='Are you planning to take the MPRE while preparing for the bar exam?  If yes, please provide the date of the MPRE exam you plan to take.'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fld14n4doLdMujJr4}
+						/>
+
+						<TextArea
+							id='fldcEvDnx7yDXGtaH'
+							name='fldcEvDnx7yDXGtaH'
+							label='Have you been granted testing accommodations for the bar exam?  If so, please state the testing accommodations you have received.'
+							placeholder=''
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldcEvDnx7yDXGtaH}
+						/>
+
+						<TextArea
+							name='fldwOFwQjp9mmzeCA'
+							placeholder=''
+							id='fldwOFwQjp9mmzeCA'
+							label='Have you been granted (or did you receive) testing accommodations for law school exams? If so, please state the testing accommodations you have been granted or received.'
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldwOFwQjp9mmzeCA}
+						/>
+
+						<TextArea
+							id='fldwJNJx8XuL9CH3o'
+							name='fldwJNJx8XuL9CH3o'
+							label='Please explain why you want to work with Agape Christian Bar Prep?'
+							placeholder=''
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fldwJNJx8XuL9CH3o}
+						/>
+
+						<SingleSelect
+							id='fld2LbhLsphcZ1NM3'
+							name='fld2LbhLsphcZ1NM3'
+							label='To complete your application, you MUST take a one-hour assessment. The assessment is administered under timed conditions by an Agape instructor.  Please select a date and time from below to take the assessment. Further details will be provided.'
+							options={[
+								'Tuesday, September 26, 2023 @ 7 p.m. EST',
+								'Thursday, September 28, 2023 @ 7 p.m. EST',
+								'Monday, October 2, 2023 @ 7 p.m. EST',
+								'Wednesday, October 4, 2023 @ 7 p.m. EST',
+								'Saturday, October 7, 2023 @ 10 a.m. EST'
+							]}
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fld2LbhLsphcZ1NM3}
+						/>
+
 						{action.value?.failed && <p>{}</p>}
 						<button type='submit'>Submit</button>
 					</div>

@@ -4,14 +4,15 @@ type InputProps = {
 	name: string
 	label: string
 	placeholder: string
-
 	required?: boolean
 	value?: any
 	id: string
+	error: boolean | undefined
+	errorMsg?: string[]
 }
 
 export const TextArea = component$<InputProps>(
-	({ name, label, placeholder, required, id }) => {
+	({ name, label, placeholder, required, id, error, errorMsg }) => {
 		return (
 			<div class='col-span-2'>
 				<label
@@ -27,6 +28,7 @@ export const TextArea = component$<InputProps>(
 					placeholder={placeholder}
 					required={required}
 				/>
+				{error && <p class='text-red-700 '>{errorMsg}</p>}
 			</div>
 		)
 	}
