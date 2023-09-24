@@ -1,3 +1,7 @@
+:root {
+	--primary: #910811;
+}
+
 @font-face {
 	font-family: 'Inter';
 	font-weight: 400;
@@ -11,46 +15,42 @@
 	font-display: swap;
 }
 
-html {
+/* html {
 	-webkit-text-size-adjust: 100%;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
 	font-family: 'Inter', sans-serif;
 	height: 100%;
-}
+} */
 
-body {
+/* body {
 	padding: 0;
 	line-height: inherit;
 	font-family: 'Inter', sans-serif;
 	height: 100%;
-}
+} */
 
-p {
+/* p {
 	max-width: 75ch;
 	margin-bottom: 1em;
-}
+} */
 
-html::-webkit-scrollbar {
+/* html::-webkit-scrollbar {
 	display: none;
-}
+} */
 
 /* Hide scrollbar for IE, Edge and Firefox */
 html {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
 }
-
-.mt-section {
-	margin-top: max(calc(8vw + 5px), 6rem);
-}
-
+/* 
 .customGrid {
 	grid-template-columns: repeat(auto-fit, minmax(5em, 10em));
-}
+} */
 
-.teacher-text {
+/* .teacher-text {
 	font-size: clamp(3.5rem, 10vw, 7rem);
 	line-height: 1em;
-}
+} */

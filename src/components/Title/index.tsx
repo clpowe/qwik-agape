@@ -10,10 +10,10 @@ export default component$<TitleProps>(({ title, titleSecondary, eyebrow }) => {
 	return (
 		<div>
 			<p class='uppercase'>{eyebrow}</p>
-			<h2 class='text-4xl font-bold max-w-[20ch]'>
+			<h2 class='font-bold max-w-[20ch] '>
 				{title}
 				<br />
-				<span class='text-red-700'>{titleSecondary}</span>
+				<span class='text-[var(--primary)]'>{titleSecondary}</span>
 			</h2>
 		</div>
 	)

@@ -14,8 +14,8 @@ export default component$<ContentSectionOneProps>(
 	({ heading, body1, body2, headingSecondary }) => {
 		useStylesScoped$(style)
 		return (
-			<section>
-				<div class='myContainer py-12'>
+			<section class='w-full'>
+				<div class='container mx-auto py-12'>
 					<div class=' max-w-[30ch] mb-6'>
 						<Title title={heading} titleSecondary={headingSecondary} />
 					</div>

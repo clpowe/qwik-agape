@@ -11,6 +11,9 @@ dependencies:
   '@modular-forms/qwik':
     specifier: ^0.20.0
     version: 0.20.0(@builder.io/qwik-city@1.2.4)(@builder.io/qwik@1.2.4)
+  '@picocss/pico':
+    specifier: ^1.5.10
+    version: 1.5.10
   '@supabase/supabase-js':
     specifier: ^2.32.0
     version: 2.32.0
@@ -2790,6 +2793,10 @@ packages:
     dependencies:
       json-parse-even-better-errors: 2.3.1
     dev: true
+
+  /@picocss/pico@1.5.10:
+    resolution: {integrity: sha512-+LafMsrwPxXQMk6sI///TmSInCwwZmq+K7SikyL3N/4GhhwzyPC+TQLUEqmrLyjluR+uIpFFcqjty30Rtr6GxQ==}
+    dev: false
 
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}

@@ -15,17 +15,12 @@ type InputProps = {
 export const Input = component$<InputProps>(
 	({ name, label, placeholder, type, required, id, error, errorMsg }) => {
 		return (
-			<div class='col-span-2 sm:col-span-1'>
-				<div>
-					<label
-						for={name}
-						class={[
-							'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
-						]}
-					>
-						{label}
-					</label>
+			<div>
+				<label for={name} class='grid'>
+					{label}
+
 					<input
+						aria-invalid={error}
 						type={type}
 						name={name}
 						id={id}
@@ -36,7 +31,7 @@ export const Input = component$<InputProps>(
 						placeholder={placeholder}
 						required={required}
 					/>
-				</div>
+				</label>
 				{error && <p class='text-red-700 '>{errorMsg}</p>}
 			</div>
 		)

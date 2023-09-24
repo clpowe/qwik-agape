@@ -23,7 +23,7 @@ export default component$(() => {
 
 	return (
 		<section>
-			<div class='myContainer grid gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-6'>
+			<div class='container mx-auto grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
 				<Resource
 					value={teachersResource}
 					onPending={() => <>Loading...</>}

@@ -48,46 +48,53 @@ export default component$(() => {
 
 	return (
 		<>
-			<div class='absolute top-0 left-0 w-full z-10'>
+			<div data-theme='dark'>
 				<div class='bg-black '>
-					<div class='container mx-auto px-4 text-white text-sm text-center py-2 md:text-end'>
-						admin@agapechristianbarprep.com / 1-800-321-5588
-					</div>
+					<hgroup>
+						<div class='container mx-auto px-4 text-white text-xs text-center py-2 md:text-end'>
+							admin@agapechristianbarprep.com
+						</div>
+					</hgroup>
 				</div>
-				<nav class='myContainer flex justify-between uppercase '>
-					<div class='flex items-center'>
-						<ImgAgape class='w-20' alt='Agape Christian Bar Prep Logo' />
-						<span class='hidden md:block text-white font-bold ml-4'>
-							Agape Christian Bar Prep
-						</span>
-					</div>
-					<Resource
-						value={linksResource}
-						onPending={() => <>Loading...</>}
-						onRejected={(error) => <>Error: {error.message}</>}
-						onResolved={(links: any) => (
-							<div class='flex items-center gap-2 text-white '>
-								<nav class='hidden md:flex gap-4'>
-									{links.results.map((link: any, index: number) => (
-										<a key={index} href={link.data.url}>
-											{link.data.text}
-										</a>
-									))}
-								</nav>
-								<button
-									class='flex md:hidden font-bold gap-2 items-center'
-									onClick$={openDrawer}
+				<hgroup>
+					<nav class='container mx-auto flex justify-between  '>
+						<div class='flex items-center'>
+							<ImgAgape class='w-10' alt='Agape Christian Bar Prep Logo' />
+							<span class='hidden md:block text-white ml-4'>
+								Agape Christian Bar Prep
+							</span>
+						</div>
+						<Resource
+							value={linksResource}
+							onPending={() => <>Loading...</>}
+							onRejected={(error) => <>Error: {error.message}</>}
+							onResolved={(links: any) => (
+								<div
+									data-theme='dark'
+									class='flex items-center gap-2 text-white '
 								>
-									Menu
-									<div class='i-mdi-microsoft-xbox-controller-menu text-2xl' />
-								</button>
-							</div>
-						)}
-					/>
-				</nav>
+									<nav class='hidden md:flex gap-4 uppercase'>
+										{links.results.map((link: any, index: number) => (
+											<a key={index} href={link.data.url} class='text-white'>
+												{link.data.text}
+											</a>
+										))}
+									</nav>
+									<button
+										class='flex md:hidden font-bold gap-2 items-center bg-transparent border-none'
+										onClick$={openDrawer}
+									>
+										Menu
+										<div class='i-mdi-microsoft-xbox-controller-menu text-2xl' />
+									</button>
+								</div>
+							)}
+						/>
+					</nav>
+				</hgroup>
 			</div>
 			<dialog
-				class=' text-white'
+				class='block text-white'
 				ref={menuRef}
 				onClick$={(e: any) => {
 					if (e.target.nodeName === 'DIALOG') {

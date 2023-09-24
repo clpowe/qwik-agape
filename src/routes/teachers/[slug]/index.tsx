@@ -52,7 +52,7 @@ export default component$(() => {
 						<>
 							<InnerHero />
 
-							<main class='myContainer flex flex-col gap-16 my-16'>
+							<main class='container flex flex-col gap-16 my-16'>
 								<div class='flex flex-col md:flex-row md:flex gap-8'>
 									<Image
 										layout='fixed'

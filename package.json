@@ -55,6 +55,7 @@
 	"dependencies": {
 		"@builder.io/sdk-qwik": "^0.4.1",
 		"@modular-forms/qwik": "^0.20.0",
+		"@picocss/pico": "^1.5.10",
 		"@supabase/supabase-js": "^2.32.0",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@unocss/reset": "^0.53.4",

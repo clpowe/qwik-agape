@@ -8,6 +8,7 @@ import { RouterHead } from './components/router-head/router-head'
 
 import '@unocss/reset/tailwind.css'
 import 'virtual:uno.css'
+import './pico.css'
 import './global.css'
 
 export default component$(() => {
@@ -25,7 +26,7 @@ export default component$(() => {
 				<link rel='manifest' href='/manifest.json' />
 				<RouterHead />
 			</head>
-			<body lang='en'>
+			<body lang='en' data-theme='light'>
 				<RouterOutlet />
 				<ServiceWorkerRegister />
 			</body>

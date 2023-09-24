@@ -11,17 +11,20 @@ export default component$<HeroProps>(({ headline, subheading }) => {
 	useStylesScoped$(style)
 
 	return (
-		<>
+		<div class='hero hero-img' data-theme='dark'>
 			<Navigation />
-			<div class='hero relative  top-0 grid  h-[38rem] bg-cover bg-top p-4 items-end pb-[min(7vw,3rem)]'>
-				<div class='text-white myContainer flex flex-col gap-4 p-0 md:p-4 '>
+
+			<header class='container'>
+				<hgroup>
 					<h1 class='max-w-[12ch] font-bold  headline'>{headline}</h1>
 					<p class='max-w-sm'>{subheading}</p>
-					<button class=' w-40 font-bold uppercase bg-red-800 py-4 px-5 rounded-md '>
-						Apply Now
-					</button>
-				</div>
-			</div>
-		</>
+					<p>
+						<a href='' role='button'>
+							Apply Now
+						</a>
+					</p>
+				</hgroup>
+			</header>
+		</div>
 	)
 })

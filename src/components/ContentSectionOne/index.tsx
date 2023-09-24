@@ -32,12 +32,14 @@ export default component$<ContentSectionOneProps>(
 		})
 
 		return (
-			<section class='section'>
-				<div class='myContainer grid grid-cols-1 gap-6 md:grid-cols-2 '>
-					<div class='space-y-4'>
+			<section class='section w-full'>
+				<div class='container mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 '>
+					<div class=''>
 						<Title title={heading} titleSecondary={headingSecondary} />
 						<Body text={body} />
-						<button>{ctaText}</button>
+						<a href='' role='button'>
+							{ctaText}
+						</a>
 					</div>
 
 					<Image

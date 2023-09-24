@@ -1,5 +1,16 @@
+:root {
+	--primary: #910811;
+}
+
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+	--primary: #910811;
+}
+
 .hero {
 	background-image: url('https://ik.imagekit.io/cpds/Agape_Christian/heroSM_gTV--RM5u.png?updatedAt=1688698892509');
+	background-position: top;
+	background-size: cover;
 }
 
 .headline {
@@ -7,7 +18,7 @@
 	line-height: 1em;
 }
 
-@media (min-width: 641px) and (max-width: 1024px) {
+@media (min-width: 641px) {
 	.hero {
 		background-image: url('https://ik.imagekit.io/cpds/Agape_Christian/HeroImageMd_7IJG72IBh.png?updatedAt=1688698892851');
 	}
