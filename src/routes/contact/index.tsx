@@ -176,6 +176,8 @@ export default component$(() => {
 							name='fld16nTUwI0ltg2Im'
 							label='Message'
 							placeholder=''
+							error={action.value?.failed}
+							errorMsg={action.value?.fieldErrors?.fld16nTUwI0ltg2Im}
 						/>
 					</div>
 					<div class='mt-10'>

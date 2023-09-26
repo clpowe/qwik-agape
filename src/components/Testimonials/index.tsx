@@ -55,7 +55,7 @@ export default component$(() => {
 
 	return (
 		<section class=''>
-			<div class='myContainer'>
+			<div class='container mx-auto'>
 				<Title
 					eyebrow='What People Say About Us'
 					title='Student'

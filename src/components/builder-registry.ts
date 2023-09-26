@@ -187,6 +187,20 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 				name: 'body',
 				type: 'longText',
 				defaultValue: 'heading'
+			},
+			{
+				name: 'links',
+				type: 'list',
+				subFields: [
+					{
+						name: 'text',
+						type: 'string'
+					},
+					{
+						name: 'link',
+						type: 'string'
+					}
+				]
 			}
 		]
 	},
