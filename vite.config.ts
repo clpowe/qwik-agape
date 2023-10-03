@@ -7,6 +7,7 @@ import UnoCSS from "unocss/vite";
 import { presetIcons } from "unocss";
 
 
+
 export default defineConfig(() => {
   return {
     plugins: [
@@ -14,8 +15,8 @@ export default defineConfig(() => {
       qwikVite(),
       tsconfigPaths(),
       UnoCSS({ presets: [presetWind(), presetIcons()] }),
- 
     ],
+    
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",

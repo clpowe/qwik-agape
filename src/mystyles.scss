@@ -1,0 +1,24 @@
+// @use '../node_modules/bulma/bulma.sass';
+
+@font-face {
+	font-family: 'Inter';
+	font-weight: 400;
+	src: local('Inter-Regular'), url('/fonts/Inter-Regular.woff2') format('woff2');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Inter';
+	font-weight: 500;
+	src: local('Inter-Bold'), url('/fonts/Inter-Bold.woff2') format('woff2');
+	font-display: swap;
+}
+
+$family-sans-serif: 'Inter', sans-serif;
+$family-primary: $family-sans-serif;
+$primary: #910811;
+
+@import '../node_modules/bulma/bulma.sass';
+
+.navbar-burger {
+	width: fit-content;
+}

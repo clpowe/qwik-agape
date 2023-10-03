@@ -3,7 +3,7 @@ import Title from '../Title'
 
 export default component$(() => {
 	return (
-		<div class='p-4 container mx-auto max-w-4xl flex flex-col gap-4  justify-center md:flex-row md:items-end'>
+		<div class='section p-4 container mx-auto max-w-4xl flex flex-col gap-4  justify-center md:flex-row md:items-end'>
 			<Title
 				eyebrow='We are hiring'
 				title='Join the'

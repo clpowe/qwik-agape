@@ -10,7 +10,7 @@ interface FeatureProps {
 
 export default component$<FeatureProps>(({ body1, body2, body3 }) => {
 	return (
-		<section class='text-black body-font'>
+		<section class='section text-black body-font '>
 			<div class='container max-w-7xl px-5 py-12 mx-auto'>
 				<div class='mb-4'>
 					<Title title='The Path' titleSecondary='to Esquire' />

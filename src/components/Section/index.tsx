@@ -18,7 +18,7 @@ interface SectionProps {
 export default component$<SectionProps>(
 	({ heading, headingSecondary, body, links }) => {
 		return (
-			<section class='container'>
+			<section class='section container'>
 				<Title title={heading} titleSecondary={headingSecondary} />
 				<Body text={body} />
 				<div class='grid grid-flow-dense sm:grid-cols-2 md:grid-cols-4 gap-4'>

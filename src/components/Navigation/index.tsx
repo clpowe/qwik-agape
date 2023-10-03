@@ -56,42 +56,51 @@ export default component$(() => {
 						</div>
 					</hgroup>
 				</div>
-				<hgroup>
-					<nav class='container mx-auto flex justify-between  '>
-						<div class='flex items-center'>
-							<ImgAgape class='w-10' alt='Agape Christian Bar Prep Logo' />
-							<span class='hidden md:block text-white ml-4'>
-								Agape Christian Bar Prep
-							</span>
+
+				<nav class='navbar px-4 is-transparent'>
+					<div class='container !flex'>
+						<div class='navbar-brand'>
+							<div class='flex items-center'>
+								<ImgAgape class='w-10' alt='Agape Christian Bar Prep Logo' />
+								<span class='hidden md:block text-white ml-4'>
+									Agape Christian Bar Prep
+								</span>
+							</div>
 						</div>
-						<Resource
-							value={linksResource}
-							onPending={() => <>Loading...</>}
-							onRejected={(error) => <>Error: {error.message}</>}
-							onResolved={(links: any) => (
-								<div
-									data-theme='dark'
-									class='flex items-center gap-2 text-white '
-								>
-									<nav class='hidden md:flex gap-4 uppercase'>
-										{links.results.map((link: any, index: number) => (
-											<a key={index} href={link.data.url} class='text-white'>
-												{link.data.text}
-											</a>
-										))}
-									</nav>
-									<button
-										class='flex md:hidden font-bold gap-2 items-center bg-transparent border-none'
-										onClick$={openDrawer}
-									>
-										Menu
-										<div class='i-mdi-microsoft-xbox-controller-menu text-2xl' />
-									</button>
-								</div>
-							)}
-						/>
-					</nav>
-				</hgroup>
+
+						<div id='navbarMenuHeroA' class='navbar-menu'>
+							<div class='navbar-end'>
+								<Resource
+									value={linksResource}
+									onPending={() => <>Loading...</>}
+									onRejected={(error) => <>Error: {error.message}</>}
+									onResolved={(links: any) => (
+										<>
+											{links.results.map((link: any, index: number) => (
+												<a
+													key={index}
+													href={link.data.url}
+													class='navbar-item uppercase  text-white hover:text-red-9'
+												>
+													{link.data.text}
+												</a>
+											))}
+										</>
+									)}
+								/>
+							</div>
+						</div>
+						<span
+							data-target='navbarMenuHeroA'
+							class='ml-auto navbar-burger  w-[fit-content]'
+						>
+							<button class='flex gap-2 text-white' onClick$={openDrawer}>
+								<div class='i-mdi-microsoft-xbox-controller-menu text-2xl ' />
+								Menu
+							</button>
+						</span>
+					</div>
+				</nav>
 			</div>
 			<dialog
 				class='block text-white'
@@ -104,7 +113,7 @@ export default component$(() => {
 			>
 				<nav class='grid p-4 gap-6 font-bold justify-end items-end text-end'>
 					<button
-						class='flex md:hidden font-bold gap-2 items-center justify-end'
+						class='flex  font-bold gap-2 items-center justify-end'
 						onClick$={closeDrawer}
 					>
 						close
@@ -117,7 +126,11 @@ export default component$(() => {
 						onResolved={(links: any) => (
 							<>
 								{links.results.map((link: any, index: any) => (
-									<a key={index} href={link.data.url} class='text-3xl '>
+									<a
+										key={index}
+										href={link.data.url}
+										class='navbar-item is-primary bg-black '
+									>
 										{link.data.text}
 									</a>
 								))}

@@ -22,7 +22,7 @@ export default component$(() => {
 	)
 
 	return (
-		<section>
+		<section class='section'>
 			<div class='container mx-auto grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
 				<Resource
 					value={teachersResource}
