@@ -1,4 +1,4 @@
-@unocss all;
+@unoss;
 
 :root {
 	--primary: #910811;
@@ -17,42 +17,7 @@
 	font-display: swap;
 }
 
-/* html {
-	-webkit-text-size-adjust: 100%;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	font-family: 'Inter', sans-serif;
-	height: 100%;
-} */
-
-/* body {
-	padding: 0;
-	line-height: inherit;
-	font-family: 'Inter', sans-serif;
-	height: 100%;
-} */
-
-/* p {
-	max-width: 75ch;
-	margin-bottom: 1em;
-} */
-
-/* html::-webkit-scrollbar {
-	display: none;
-} */
-
-/* Hide scrollbar for IE, Edge and Firefox */
 html {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
 }
-/* 
-.customGrid {
-	grid-template-columns: repeat(auto-fit, minmax(5em, 10em));
-} */
-
-/* .teacher-text {
-	font-size: clamp(3.5rem, 10vw, 7rem);
-	line-height: 1em;
-} */

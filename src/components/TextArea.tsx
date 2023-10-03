@@ -14,19 +14,21 @@ type InputProps = {
 export const TextArea = component$<InputProps>(
 	({ name, label, placeholder, required, id, error, errorMsg }) => {
 		return (
-			<>
-				<label for={name}>
+			<div class='field'>
+				<label for={name} class='label has-text-weight-normal'>
 					{label}
-
+				</label>
+				<div class='control'>
 					<textarea
 						name={name}
 						id={id}
 						placeholder={placeholder}
 						required={required}
+						class='textarea'
 					/>
-				</label>
-				{error && <p class='text-red-700 '>{errorMsg}</p>}
-			</>
+				</div>
+				{error && <p class='help is-danger'>{errorMsg}</p>}
+			</div>
 		)
 	}
 )

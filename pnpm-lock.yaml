@@ -61,6 +61,9 @@ devDependencies:
   '@builder.io/qwik-city':
     specifier: ~1.2.4
     version: 1.2.4
+  '@csstools/postcss-cascade-layers':
+    specifier: ^4.0.0
+    version: 4.0.0(postcss@8.4.24)
   '@emotion/styled':
     specifier: 11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
@@ -104,7 +107,7 @@ devDependencies:
     specifier: ~1.2.0
     version: 1.2.0(eslint@8.40.0)
   postcss:
-    specifier: ^8.4.23
+    specifier: ^8.4.24
     version: 8.4.24
   postcss-nesting:
     specifier: ^11.3.0
@@ -1578,6 +1581,17 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
+  /@csstools/postcss-cascade-layers@4.0.0(postcss@8.4.24):
+    resolution: {integrity: sha512-dVPVVqQG0FixjM9CG/+8eHTsCAxRKqmNh6H69IpruolPlnEF1611f2AoLK8TijTSAsqBSclKd4WHs1KUb/LdJw==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      postcss: ^8.4
+    dependencies:
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      postcss: 8.4.24
+      postcss-selector-parser: 6.0.13
+    dev: true
+
   /@csstools/postcss-color-function@2.2.3(postcss@8.4.24):
     resolution: {integrity: sha512-b1ptNkr1UWP96EEHqKBWWaV5m/0hgYGctgA/RVZhONeP1L3T/8hwoqDm9bB23yVCfOgE9U93KI9j06+pEkJTvw==}
     engines: {node: ^14 || ^16 || >=18}
@@ -1830,6 +1844,15 @@ packages:
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss-selector-parser: ^6.0.10
+    dependencies:
+      postcss-selector-parser: 6.0.13
+    dev: true
+
+  /@csstools/selector-specificity@3.0.0(postcss-selector-parser@6.0.13):
+    resolution: {integrity: sha512-hBI9tfBtuPIi885ZsZ32IMEU/5nlZH/KOVYJCOh7gyMxaVLGmLedYqFN6Ui1LXkI8JlC8IsuC0rF0btcRZKd5g==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      postcss-selector-parser: ^6.0.13
     dependencies:
       postcss-selector-parser: 6.0.13
     dev: true

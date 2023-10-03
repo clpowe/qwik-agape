@@ -13,7 +13,7 @@ export default component$(() => {
 	)
 
 	return (
-		<footer class='text-gray-600 body-font mt-auto bg-black'>
+		<footer class='footer text-gray-600 body-font mt-auto bg-black'>
 			<div class='myContainer px-5 py-24  flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col'>
 				<div class='w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left'>
 					<a class='flex title-font font-medium items-center md:justify-start justify-center text-white'>

@@ -4,7 +4,7 @@ import Footer from '~/components/Footer'
 
 export default component$(() => {
 	return (
-		<div class='flex flex-col h-full'>
+		<div class=''>
 			<main class='relative'>
 				<Slot />
 			</main>

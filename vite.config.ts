@@ -16,7 +16,6 @@ export default defineConfig(() => {
       tsconfigPaths(),
       UnoCSS({ presets: [presetWind(), presetIcons()] }),
     ],
-    
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",

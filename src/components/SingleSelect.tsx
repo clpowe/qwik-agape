@@ -14,16 +14,22 @@ type InputProps = {
 export const SingleSelect = component$<InputProps>(
 	({ name, label, id, options, multiple, error, errorMsg }) => {
 		return (
-			<div>
-				<label for={name}>{label}</label>
-				<select name={name} id={id} multiple={multiple}>
-					{options.map((option) => (
-						<option value={option} key={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				{error && <p class='text-red-700 '>{errorMsg}</p>}
+			<div class='field'>
+				<label for={name} class='label has-text-weight-normal'>
+					{label}
+				</label>
+				<div class='control'>
+					<div class='select'>
+						<select name={name} id={id} multiple={multiple}>
+							{options.map((option) => (
+								<option value={option} key={option}>
+									{option}
+								</option>
+							))}
+						</select>
+					</div>
+				</div>
+				{error && <p class='help is-danger'>{errorMsg}</p>}
 			</div>
 		)
 	}

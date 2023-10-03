@@ -15,24 +15,20 @@ type InputProps = {
 export const Input = component$<InputProps>(
 	({ name, label, placeholder, type, required, id, error, errorMsg }) => {
 		return (
-			<div>
-				<label for={name} class='grid'>
+			<div class='field'>
+				<label for={name} class='label has-text-weight-normal'>
 					{label}
-
-					<input
-						aria-invalid={error}
-						type={type}
-						name={name}
-						id={id}
-						class={[
-							'shadow-sm bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light',
-							error && errorMsg ? 'border-red-700' : 'border-gray-300'
-						]}
-						placeholder={placeholder}
-						required={required}
-					/>
 				</label>
-				{error && <p class='text-red-700 '>{errorMsg}</p>}
+				<input
+					aria-invalid={error}
+					type={type}
+					name={name}
+					id={id}
+					class={['input is-medium', error && errorMsg ? 'is-danger' : '']}
+					placeholder={placeholder}
+					required={required}
+				/>
+				{error && <p class='help is-danger'>{errorMsg}</p>}
 			</div>
 		)
 	}

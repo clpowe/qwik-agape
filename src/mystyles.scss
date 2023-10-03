@@ -18,6 +18,7 @@ $family-primary: $family-sans-serif;
 $primary: #910811;
 
 @import '../node_modules/bulma/bulma.sass';
+@import './global.css';
 
 .navbar-burger {
 	width: fit-content;
