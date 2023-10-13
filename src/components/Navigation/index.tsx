@@ -80,7 +80,7 @@ export default component$(() => {
 												<a
 													key={index}
 													href={link.data.url}
-													class='navbar-item uppercase  text-white hover:text-red-9'
+													class='navbar-item uppercase  text-white hover:text-red-9 hover:border-b-4 hover:border-[var(--primary)] hover:border-b-6 hover:translate-y-[3px] '
 												>
 													{link.data.text}
 												</a>
@@ -92,9 +92,12 @@ export default component$(() => {
 						</div>
 						<span
 							data-target='navbarMenuHeroA'
-							class='ml-auto navbar-burger  w-[fit-content]'
+							class='ml-auto navbar-burger  w-[fit-content] '
 						>
-							<button class='flex gap-2 text-white' onClick$={openDrawer}>
+							<button
+								class='flex gap-2 text-white bg-transparent '
+								onClick$={openDrawer}
+							>
 								<div class='i-mdi-microsoft-xbox-controller-menu text-2xl ' />
 								Menu
 							</button>

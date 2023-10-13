@@ -18,8 +18,10 @@ export default component$<HeroProps>(({ headline, subheading }) => {
 			<Navigation />
 
 			<header class='hero-body'>
-				<h1 class='title has-text-white'>{headline}</h1>
-				<p class='subtitle'>{subheading}</p>
+				<h1 class='title is-1 has-text-white has-text-weight-medium '>
+					{headline}
+				</h1>
+				<p class='subtitle is-4 has-text-white'>{subheading}</p>
 				<p>
 					<a href='' role='button' class='button is-primary'>
 						Apply Now

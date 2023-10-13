@@ -9,15 +9,13 @@ interface InnerHeroProps {
 
 export default component$<InnerHeroProps>(({ headline, subtitle }) => {
 	return (
-		<div class='hero bg-black' data-theme='dark'>
+		<section class='hero is-medium has-background-dark'>
 			<Navigation />
 
-			<header class='container'>
-				<hgroup>
-					<h1 class='max-w-[12ch] font-bold  headline'>{headline}</h1>
-					<p class='max-w-sm'>{subtitle}</p>
-				</hgroup>
-			</header>
-		</div>
+			<div class='hero-body has-text-centered'>
+				<h1 class='title has-text-white'>{headline}</h1>
+				<p class='subtitle has-text-white'>{subtitle}</p>
+			</div>
+		</section>
 	)
 })

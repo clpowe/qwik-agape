@@ -7,6 +7,7 @@ import {
 import { RouterHead } from './components/router-head/router-head'
 
 // main.ts
+import '@unocss/reset/tailwind-compat.css'
 import './base.css'
 import 'virtual:uno.css'
 import './global.css'

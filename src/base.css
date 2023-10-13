@@ -5086,7 +5086,7 @@ body.has-navbar-fixed-bottom {
 }
 
 .navbar-burger {
-  color: hsl(0, 0%, 29%);
+  color: #fff;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -5139,7 +5139,7 @@ body.has-navbar-fixed-bottom {
 
 .navbar-item,
 .navbar-link {
-  color: hsl(0, 0%, 29%);
+  color: #fff;
   display: block;
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
@@ -5161,7 +5161,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 .navbar-link:hover,
 .navbar-link.is-active {
   background-color: hsl(0, 0%, 98%);
-  color: hsl(229, 53%, 53%);
+  color: #fff;
 }
 
 .navbar-item {
