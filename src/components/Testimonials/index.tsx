@@ -1,11 +1,10 @@
-import type { SwiperOptions } from 'swiper/types'
-import { register } from 'swiper/element/bundle'
 import {
 	component$,
 	useStylesScoped$,
-	useVisibleTask$,
 	useResource$,
-	Resource
+	Resource,
+	useSignal,
+	useVisibleTask$
 } from '@builder.io/qwik'
 import Title from '~/components/Title'
 
@@ -17,32 +16,26 @@ export const apiKey = 'a77f4a06dd2947ec9095c8f325ed362e'
 
 export default component$(() => {
 	useStylesScoped$(style)
+	const scrollerRef = useSignal<HTMLElement>()
+	const scrollerInnerRef = useSignal<HTMLElement>()
 
 	useVisibleTask$(() => {
-		register()
-		const swiperEl: any = document.querySelector('swiper-container')
-		const swiperParams: SwiperOptions = {
-			slidesPerView: 1
-			// breakpoints: {
-			// 	'375': {
-			// 		slidesPerView: 1,
-			// 		spaceBetween: 30
-			// 	},
-			// 	'768': {
-			// 		slidesPerView: 2,
-			// 		spaceBetween: 30
-			// 	},
-			// 	'1024': {
-			// 		slidesPerView: 3,
-			// 		spaceBetween: 30
-			// 	}
-			// }
+		if (!window.matchMedia('(perfers-reduced-motion: reduced)').matches) {
+			addAnimation()
 		}
-		Object.assign(swiperEl, swiperParams)
 
-		// and now initialize it
-		if (swiperEl != null) {
-			swiperEl.initialize()
+		function addAnimation() {
+			scrollerRef.value?.setAttribute('data-animated', 'true')
+
+			if (scrollerInnerRef.value) {
+				const scrollerContent = Array.from(scrollerInnerRef.value?.children)
+
+				scrollerContent.forEach((item) => {
+					const duplicatedItem = item.cloneNode(true) as HTMLElement
+					duplicatedItem.setAttribute('aria-hidden', 'true')
+					scrollerInnerRef.value?.appendChild(duplicatedItem)
+				})
+			}
 		}
 	})
 
@@ -54,7 +47,7 @@ export default component$(() => {
 	)
 
 	return (
-		<section class='section'>
+		<section class='section grid place-content-center'>
 			<div class='container mx-auto'>
 				<Title
 					eyebrow='What People Say About Us'
@@ -62,32 +55,25 @@ export default component$(() => {
 					titleSecondary='Testimonials'
 				/>
 			</div>
-			<swiper-container
-				speed='500'
-				centered-slides='true'
-				slides-per-view='auto'
-			>
+			<div class='scroller' ref={scrollerRef}>
 				<Resource
 					value={testimonialsResource}
 					onPending={() => <>Loading...</>}
 					onRejected={(error) => <>Error: {error.message}</>}
 					onResolved={(links: any) => (
-						<>
+						<ul class='tag-list scroller__inner' ref={scrollerInnerRef}>
 							{links?.results.map((link: any) => (
-								<swiper-slide
-									key={link.id}
-									class='grid p-8  card rounded-3xl h-auto bg-gray-1 max-w-[40ch]'
-								>
-									<p class='text-sm'>{link.data.testimonial}</p>
-									<p class='font-bold text-md place-self-end mt-4'>
-										{link.data.name}
-									</p>
-								</swiper-slide>
+								<li key={link.id} class='card carddesign'>
+									<div class='card-content'>
+										<p class=''>{link.data.testimonial}</p>
+										<p class='subtitle !font-bold'>{link.data.name}</p>
+									</div>
+								</li>
 							))}
-						</>
+						</ul>
 					)}
 				/>
-			</swiper-container>
+			</div>
 		</section>
 	)
 })
